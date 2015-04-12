@@ -5,10 +5,20 @@ class TimeLineViewController: UITableViewController {
 
     let context = Context()
     var groupOfEvents : Group!
-    var events : [Entity]!
+    
+    let sectionNames = ["Before Conference", "Social Day", "First Day", "Second Day", "Hackathon", "The End"]
+    
+    var beforeTimeSlot : Entity!
+    var endTimeSlot : Entity!
+    var socialDaySlots : [Entity]!
+    var firstDaySlots : [Entity]!
+    var secondDaySlots : [Entity]!
+    var hackathonSlots : [Entity]!
+    
+    lazy var events : [[Entity]] = [[self.beforeTimeSlot], self.socialDaySlots, self.firstDaySlots, self.secondDaySlots, self.hackathonSlots, [self.endTimeSlot]]
 
     lazy var reload : dispatch_block_t = dispatch_debounce_block(0.1) {
-        self.events = sorted(self.groupOfEvents) {
+        let events = sorted(self.groupOfEvents) {
             e1 , e2 in
             if !e1.has(StartTimeComponent) {
                 return true
@@ -18,6 +28,68 @@ class TimeLineViewController: UITableViewController {
             }
             return e1.get(StartTimeComponent)!.date.timeIntervalSinceReferenceDate < e2.get(StartTimeComponent)!.date.timeIntervalSinceReferenceDate
         }
+        
+        self.beforeTimeSlot = events.first
+        self.endTimeSlot = events.last
+        
+        let cal = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        
+        self.socialDaySlots = events.filter({
+            let dateComponents = NSDateComponents()
+            
+            dateComponents.year = 2015
+            dateComponents.month = 5
+            dateComponents.day = 17
+            
+            if let date = $0.get(StartTimeComponent)?.date {
+                return cal.date(date, matchesComponents: dateComponents)
+            }
+            return false
+        })
+        
+        self.firstDaySlots = events.filter({
+            let dateComponents = NSDateComponents()
+            
+            dateComponents.year = 2015
+            dateComponents.month = 5
+            dateComponents.day = 18
+            
+            if let date = $0.get(StartTimeComponent)?.date {
+                return cal.date(date, matchesComponents: dateComponents)
+            }
+            return false
+        })
+        
+        self.secondDaySlots = events.filter({
+            let dateComponents = NSDateComponents()
+            
+            dateComponents.year = 2015
+            dateComponents.month = 5
+            dateComponents.day = 19
+            
+            if let date = $0.get(StartTimeComponent)?.date {
+                return cal.date(date, matchesComponents: dateComponents)
+            }
+            return false
+        })
+        
+        self.hackathonSlots = events.filter({
+            let dateComponents = NSDateComponents()
+            
+            dateComponents.year = 2015
+            dateComponents.month = 5
+            dateComponents.day = 20
+            
+            if !$0.has(EndTimeComponent) {
+                return false
+            }
+            
+            if let date = $0.get(StartTimeComponent)?.date {
+                return cal.date(date, matchesComponents: dateComponents)
+            }
+            return false
+        })
+        
         self.tableView.reloadData()
     }
     
@@ -45,34 +117,54 @@ class TimeLineViewController: UITableViewController {
 
 extension TimeLineViewController {
     
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return groupOfEvents.count == 0 ? 0 : sectionNames.count
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionNames[section]
+    }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let events = events {
-            return events.count
+        switch section {
+        case 0 where beforeTimeSlot != nil :
+            return 1
+        case 5 where endTimeSlot != nil :
+            return 1
+        case 1 where socialDaySlots != nil :
+            return socialDaySlots.count
+        case 2 where firstDaySlots != nil :
+            return firstDaySlots.count
+        case 3 where secondDaySlots != nil :
+            return secondDaySlots.count
+        case 4 where hackathonSlots != nil :
+            return hackathonSlots.count
+        default : return 0
         }
-        return 0
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cellIdentifier : String
         
-        let numberOfEvent = events == nil ? 0 : events.count
-        
-        switch indexPath.row {
+        switch indexPath.section {
         case 0 : cellIdentifier = "beforeConference"
-        case numberOfEvent - 1 : cellIdentifier = "afterConference"
+        case 5 : cellIdentifier = "afterConference"
         default : cellIdentifier = "timeSlot"
         }
         
         let cell  = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! EntityCell
-        cell.updateWithEntity(events[indexPath.row], context: context)
+        
+        
+        
+        cell.updateWithEntity(events[indexPath.section][indexPath.row], context: context)
         
         return cell as! UITableViewCell
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
         
-        let event = events[indexPath.row]
+        let event = events[indexPath.section][indexPath.row]
         let height : CGFloat
         if(!event.has(StartTimeComponent)){
             height = 320
@@ -87,7 +179,7 @@ extension TimeLineViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let event = events[indexPath.row]
+        let event = events[indexPath.section][indexPath.row]
         if(!Matcher.All(StartTimeComponent, EndTimeComponent).isMatching(event)){
             return
         }
