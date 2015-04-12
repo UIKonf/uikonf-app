@@ -1,0 +1,449 @@
+[
+	{
+		"t_id" : "beforeConference",
+        "endTime" : "17-15-00",
+		"description" : "Time before Conference"
+	},
+	{
+		"t_id" : "socialActivity",
+		"startTime" : "17-15-00",
+		"endTime" : "17-19-00",
+		"description" : "Social activities on sunday"
+	},
+	{
+		"t_id" : "warmingParty",
+		"startTime" : "17-19-00",
+		"endTime" : "17-22-00",
+		"description" : "Warming party before conference",
+        "locations" : ["infarm"]
+	},
+    {
+        "t_id" : "endOfSocialDay",
+        "startTime" : "17-22-00",
+        "endTime" : "18-09-00",
+        "description" : "See you tomorrow",
+        "locations" : ["Heimathafen Neukölln"]
+	},
+	{
+		"t_id" : "startDay1",
+		"startTime" : "18-09-00",
+		"endTime" : "18-10-00",
+		"description" : "Check in first day",
+        "locations" : ["Heimathafen Neukölln"]
+	},
+	{
+		"t_id" : "session1Day1",
+		"startTime" : "18-10-00",
+		"endTime" : "18-11-10",
+		"description" : "First session"
+	},
+	{
+		"t_id" : "break1Day1",
+		"startTime" : "18-11-10",
+		"endTime" : "18-11-50",
+		"description" : "First coffee break"
+	},
+	{
+		"t_id" : "session2Day1",
+		"startTime" : "18-11-50",
+		"endTime" : "18-13-00",
+		"description" : "Second session"
+	},
+	{
+		"t_id" : "lunchDay1",
+		"startTime" : "18-13-00",
+		"endTime" : "18-14-30",
+		"description" : "Lunch break"
+	},
+	{
+		"t_id" : "session3Day1",
+		"startTime" : "18-14-30",
+		"endTime" : "18-16-15",
+		"description" : "Third session"
+	},
+	{
+		"t_id" : "break2Day1",
+		"startTime" : "18-16-15",
+		"endTime" : "18-17-00",
+		"description" : "Second coffee break"
+	},
+	{
+		"t_id" : "session4Day1",
+		"startTime" : "18-17-00",
+		"endTime" : "18-18-10",
+		"description" : "Last session of the first day"
+	},
+	{
+		"t_id" : "endOfDay1",
+		"startTime" : "18-18-10",
+		"endTime" : "19-09-00",
+		"description" : "See you tomorrow",
+        "locations" : ["Heimathafen Neukölln"]
+	},
+	{
+		"t_id" : "startDay2",
+		"startTime" : "19-09-00",
+		"endTime" : "19-10-00",
+		"description" : "Start of day two",
+        "locations" : ["Heimathafen Neukölln"]
+	},
+	{
+		"t_id" : "session1Day2",
+		"startTime" : "19-10-00",
+		"endTime" : "19-11-10",
+		"description" : "First session day two"
+	},
+	{
+		"t_id" : "break1Day2",
+		"startTime" : "19-11-10",
+		"endTime" : "19-11-50",
+		"description" : "First break day two"
+	},
+	{
+		"t_id" : "session2Day2",
+		"startTime" : "19-11-50",
+		"endTime" : "19-13-00",
+		"description" : "Second session"
+	},
+	{
+		"t_id" : "lunchDay2",
+		"startTime" : "19-13-00",
+		"endTime" : "19-14-30",
+		"description" : "Lunch break"
+	},
+	{
+		"t_id" : "session3Day2",
+		"startTime" : "19-14-30",
+		"endTime" : "19-16-15",
+		"description" : "Third session"
+	},
+	{
+		"t_id" : "break2Day2",
+		"startTime" : "19-16-15",
+		"endTime" : "19-17-00",
+		"description" : "Second break"
+	},
+	{
+		"t_id" : "session4Day2",
+		"startTime" : "19-17-00",
+		"endTime" : "19-18-10",
+		"description" : "Last session"
+	},
+	{
+		"t_id" : "beforeParty",
+		"startTime" : "19-18-10",
+		"endTime" : "19-21-00",
+		"description" : "Free time before party",
+        "locations" : ["Heimathafen Neukölln"]
+	},
+	{
+		"t_id" : "party",
+		"startTime" : "19-21-00",
+		"endTime" : "20-01-00",
+		"description" : "Party",
+        "locations" : ["Klunkerkranich"]
+	},
+	{
+		"t_id" : "afterParty",
+		"startTime" : "20-01-00",
+		"endTime" : "20-10-00",
+		"description" : "See you at hackathon",
+        "locations" : ["betahaus"]
+	},
+	{
+		"t_id" : "beforeHackathon",
+		"startTime" : "20-10-00",
+		"endTime" : "20-10-30",
+		"description" : "Checkin for Hackathon",
+        "locations" : ["betahaus"]
+	},
+    {
+        "t_id" : "beforeHackathon",
+        "startTime" : "20-10-30",
+        "endTime" : "20-19-00",
+        "description" : "Hackathon",
+        "locations" : ["betahaus"]
+	},
+	{
+		"t_id" : "goodBye",
+		"startTime" : "20-19-00",
+		"description" : "Good Bye and thank you!"
+	},
+ {
+ "name" : "Engin Kurutepe",
+ "twitter" : "@ekurutepe",
+ "bio" : "Used to be a Ph.D. student. Bought an iPhone when the first iPhone SDK was released and has been building iOS apps ever since. Organizes CocoaHeads Berlin. Glider pilot in training.",
+ "photo" : "http://www.uikonf.com/static/images/engin-kurutepe.png",
+ "organizer" : true
+ },
+ {
+ "name" : "Maxim Zaks",
+ "twitter" : "@iceX33",
+ "bio" : "Software developer with a history in IDE development, Web development and even Enterprise Java development (He was young and under bad influence). Nowadays working as a game developer (preferably iOS). Regular visitor and occasional speaker at conferences.",
+ "photo" : "http://www.uikonf.com/static/images/maxim-zaks.png",
+ "organizer" : true
+ },
+ {
+ "name" : "Sabine Geithner",
+ "twitter" : "@sabinegeithner",
+ "bio" : "Biotechnologist by training who started developing apps about a year ago. Has been active in the developer community since June 2012, co-organizing workshops for Rails Girls Berlin.",
+ "photo" : "http://www.uikonf.com/static/images/sabine-geithner.png",
+ "organizer" : true
+ },
+ {
+ "name" : "Diana Arce",
+ "twitter" : "@visualosmosis",
+ "bio" : "Artist, researcher and trickster with an eye for detail and a love of creating spaces and events for new experiences, active engagement and knowledge exchange. She is the founder of Politaoke and ArtistsWAC and develops projects and events for all kinds of organizations internationally.",
+ "photo" : "http://www.uikonf.com/static/images/diana-arce.png",
+ "organizer" : true
+ },
+ {
+ "name" : "Graham Lee",
+ "bio" : "Graham Lee works at Facebook, where he helps people make better tests so they can help people make better software. In the past he worked with some other people, and has written books and blogs so he can work with people he hasn't met too. His blog is at sicpers.info.",
+ "photo" : "http://www.uikonf.com/static/images/Graham-Lee.png"
+ },
+ {
+ "name" : "Mike Lee",
+ "twitter" : "@bmf",
+ "bio" : "Mike Lee is an American engineer living in Amsterdam. He has worked with some interesting and even historic project teams, including such titles and company names as Delicious Monster, Tap Tap Revenge, Appsterdam, Obama '08, Black Pixel, Lemurs Chemistry, and Apple. He is currently studying terraforming.",
+ "photo" : "http://www.uikonf.com/static/images/Mike-Lee.png"
+ },
+ {
+ "name" : "Maxim Cramer",
+ "twitter" : "@mennenia",
+ "bio" : "Maxim currently works at SwiftKey where she had the privilege to be part of developing and launching SwiftKey Keyboard for iOS. Starting off with digital design at a young age, she grew curious about programming and so pursued it professionally, yet never straying far from UI/UX. Passionate about humans, she advocates testing products with people first and foremost, always enjoying the looks of surprise, confusion, and delight.",
+ "photo" : "http://www.uikonf.com/static/images/Maxim-Cramer.jpg"
+ },
+ {
+ "name" : "Natasha (the Robot) Murashev",
+ "twitter" : "@NatashaTheRobot",
+ "bio" : "Natasha is a Swift and WatchKit enthusiast who writes about her experiences with this still developing technology on natashatherobot.com and in her weekly Swift newsletter. She currently works as an iOS engineer for Capital One in San Francisco. In her free time, she works on personal projects, speaks at meetups and conferences, and contributes to open source.",
+ "photo" : "http://www.uikonf.com/static/images/Natasha-Murashev.jpg"
+ },
+ {
+ "name" : "Halle Winkler",
+ "twitter" : "@Politepix",
+ "bio" : "Halle Winkler is the software developer and UX designer behind Berlin's Politepix, which produces OpenEars, the most popular offline speech recognition framework for iOS. She has worked in tech startups in the Silicons Alley, Valley and Allee since the days of Web .9 and has been preoccupied with human factors since day one. Her first line of code was in BASIC on a Commodore VIC-20, but since then there has often been a sample buffer involved.",
+ "photo" : "http://www.uikonf.com/static/images/HalleWinkler.jpg"
+ },
+ {
+ "name" : "Ash Furrow",
+ "twitter" : "@ashfurrow",
+ "bio" : "Ash Furrow cut his teeth at 500px. Later, he moved on to Teehan+Lax, Canada's leading design agency. Now he works at Artsy, an amazing company whose goal it is to make art as popular and accessible as music. He is an open source enthusiast, author and co-author of several books, including 'Functional Reactive Programming on iOS'.",
+ "photo" : "http://www.uikonf.com/static/images/Ash.jpg"
+ },
+ {
+ "name" : "JP Simard",
+ "twitter" : "@simjp",
+ "bio" : "JP Simard is an Objective-C and Swift engineer at Realm, a modern mobile database replacement for SQLite and Core Data. He's the creator of jazzy (the documentation tool Apple forgot to release) and a co-organizer of SLUG, the largest Swift user group in the world.",
+ "photo" : "http://www.uikonf.com/static/images/JP.jpg"
+ },
+ {
+ "name" : "Chris Eidhof",
+ "twitter" : "@chriseidhof",
+ "bio" : "Chris Eidhof is a Dutch software developer living in Berlin. He spends most of his time building iOS and Mac apps, such as Deckset. He started UIKonf in 2013, objc.io, and wrote a book about Functional Programming in Swift.",
+ "photo" : "http://www.uikonf.com/static/images/chris-eidhof.jpg"
+ },
+ {
+ "name" : "Brian Gesiak",
+ "twitter" : "@modocache",
+ "bio" : "Brian Gesiak is the creator of Quick, the Swift (and Objective-C) testing framework. He also maintains several other testing frameworks, is a software engineer at Facebook in New York, and was--in a former lifetime--a translator of Japanese literature. His blog is at http://modocache.io.",
+ "photo" : "http://www.uikonf.com/static/images/BrianGesiak.jpg"
+ },
+ {
+ "name" : "Claus Höfele",
+ "twitter" : "@claushoefele",
+ "bio" : "Claus currently works as Lead Engineer Mobile at eBay Classifieds Germany. He initiated the open-source app “Stolpersteine in Berlin” and is the author of CCHMapClusterController. His latest side project is TransitHopper – an app that shows nearby departures of public transport services.",
+ "photo" : "http://www.uikonf.com/static/images/ClausHoefele.jpg"
+ },
+ {
+ "name" : "Eli Perkins",
+ "twitter" : "@_eliperkins",
+ "bio" : "Eli is an iOS Engineer at Venmo in NYC, working to make payments an easier, more social experience. A craft beer aficionado, esports evangelist, and a perennial yak shaver, his passion in iOS lies in pixel perfection and elegant engineering. His explorations in Swift and functional programming in both Objective-C and Swift have piqued his curiosity as of late.",
+ "photo" : "http://www.uikonf.com/static/images/EliPerkins.jpg"
+ },
+ {
+ "name" : "Hector Zarate",
+ "twitter" : "@ioscowboy",
+ "bio" : "Hector Zarate is Spotify's own iOS cowboy. Before that, he was bouncing all across Europe like a pinball ball doing mobile applications for banks and other big companies. He writes on his blog iOSCowboy.com and enjoys submitting pull requests to open source projects on Github. He's been a mobile aficionado since his first Palm IIIe.",
+ "photo" : "http://www.uikonf.com/static/images/HectorZarate.jpeg"
+ },
+ {
+ "name" : "Joe Burgess",
+ "twitter" : "@jmburges",
+ "bio" : "Joe Burgess is the lead iOS instructor at The Flatiron School where he has been teaching for almost 2 years. Joe loves the constraints and opportunities available to mobile developers, and enjoys sharing this joy of coding with others. He’s lucky to be spending most of his time these days sharing what he knows through teaching at Flatiron.",
+ "photo" : "http://www.uikonf.com/static/images/JoeBurgess.jpg"
+ },
+ {
+ "name" : "Tom Adriaenssen",
+ "twitter" : "@inferis",
+ "bio" : "Tom Adriaenssen is freelance software engineer from Antwerp, Belgium. Currently working for iCapps, acting as the technical lead for their mobile developer team. Also known as the creator of ViewDeck. When not working, he co-manages a household together with his lovely wife, including 4 children and 2 cats. Notorious for using gifs when retorting on twitter.",
+ "photo" : "http://www.uikonf.com/static/images/TomAdriaenssen.jpg"
+ },
+ {
+ "name" : "Junior Bontognali",
+ "twitter" : "@bontojr",
+ "bio" : "Junior is a software engineer living in Switzerland. He mainly writes softwares for iOS and Mac, but in past worked with Java, Ruby and Scala.After learning Scala, he became passionate about Functional Programming. In the free time he organizes events and meetups for SwissMobiDevs in Zürich and also works on personal projects, using new technologies.",
+ "photo" : "http://www.uikonf.com/static/images/JuniorBontognali.jpg"
+ },
+ {
+ "name" : "Jens Ravens",
+ "twitter" : "@jensravens",
+ "bio" : "Jens Ravens is a Berlin-based iOS and Ruby on Rails developer working for nerdgeschoss. He is organizing the monthly swift.berlin meetup and is obsessed with application architecture and maintainable code bases.",
+ "photo" : "http://www.uikonf.com/static/images/JensRavens.jpg"
+ },
+ {
+ "name" : "Marcel Weiher",
+ "bio" : "Marcel is a developer at 6wunderkinder, helping out the iOS and Mac teams there create Wunderlist, as well as an indie developer working on projects such as Objective-Smalltalk at metaobject ltd.  Previousy he was lead for the award winning Livescribe Desktop, tech lead at the BBC and responsible for Cocoa performance at Apple. After futzing with a home-grown Objective-C compiler on his Amiga, he upgraded to a NeXT Cube and never looked back. When not programming, he adores his little daughter and flies small airplanes as well as bits of cloth.",
+ "photo" : "http://www.uikonf.com/static/images/MarcelWeiher.jpg"
+ },
+ {
+ "name" : "Saniul Ahmed",
+ "twitter" : "@saniul",
+ "bio" : "Saniul is an incurable optimist, whose bio puzzles government agencies all around the world. He currently works on Heyday by day, contributes to Prototope by night and spends weekends exploring the San Francisco Bay Area. Previously grew and lead the iOS team at NeoSphere in Moscow, studied in London and tinkered in Poland. As a life-long learner himself he strives to inspire new generations to do so too.",
+ "photo" : "http://www.uikonf.com/static/images/SaniulAhmed.jpg"
+ },
+ {
+ "title" : "World Modeling",
+ "speaker_name" : "Mike Lee",
+ "t_id" : "session1Day1",
+ "t_index" : 1
+ },
+ {
+ "title" : "Swift Thinking",
+ "speaker_name" : "Natasha (the Robot) Murashev",
+ "t_id" : "session1Day1",
+ "t_index" : 2
+ },
+ {
+ "title" : "Staters Gonna State",
+ "speaker_name" : "Eli Perkins",
+ "t_id" : "session2Day1",
+ "t_index" : 1
+ },
+ {
+ "title" : "Monads are not Monsters",
+ "speaker_name" : "Junior Bontognali",
+ "t_id" : "session2Day1",
+ "t_index" : 2
+ },
+ {
+ "title" : "Practical WatchKit Development",
+ "speaker_name" : "Claus Höfele",
+ "t_id" : "session3Day1",
+ "t_index" : 1
+ },
+ {
+ "title" : "Software Architecture in iOS and OS X applications",
+ "speaker_name" : "Marcel Weiher",
+ "t_id" : "session3Day1",
+ "t_index" : 2
+ },
+ {
+ "title" : "Async View Controllers",
+ "speaker_name" : "Tom Adriaenssen",
+ "t_id" : "session3Day1",
+ "t_index" : 3
+ },
+ {
+ "title" : "Fixing the Swift Tooling Problem",
+ "speaker_name" : "JP Simard",
+ "t_id" : "session4Day1",
+ "t_index" : 1
+ },
+ {
+ "title" : "Teaching and Learning",
+ "speaker_name" : "Ash Furrow",
+ "t_id" : "session4Day1",
+ "t_index" : 2
+ },
+ {
+ "title" : "Duct-taping the gates of chaos shut: the weird, little, useful, sustainable indie (by design)",
+ "speaker_name" : "Halle Winkler",
+ "t_id" : "session1Day2",
+ "t_index" : 1
+ },
+ {
+ "title" : "iOS API Design: Swift Patterns",
+ "speaker_name" : "Brian Gesiak",
+ "t_id" : "session1Day2",
+ "t_index" : 2
+ },
+ {
+ "title" : "Learning Swift Through Lessons in Haskell",
+ "speaker_name" : "Joe Burgess",
+ "t_id" : "session2Day2",
+ "t_index" : 1
+ },
+ {
+ "title" : "Functional View Controllers",
+ "speaker_name" : "Chris Eidhof",
+ "t_id" : "session2Day2",
+ "t_index" : 2
+ },
+ {
+ "title" : "iOS at Spotify: From Plan to Done",
+ "speaker_name" : "Hector Zarate",
+ "t_id" : "session3Day2",
+ "t_index" : 1
+ },
+ {
+ "title" : "Functional Reactive Programming without Black Magic - Build your own ReactiveCocoa from scratch",
+ "speaker_name" : "Jens Ravens",
+ "t_id" : "session3Day2",
+ "t_index" : 2
+ },
+ {
+ "title" : "Prototyping Touch Interfaces (and my open-source story)",
+ "speaker_name" : "Saniul Ahmed",
+ "t_id" : "session3Day2",
+ "t_index" : 3
+ },
+ {
+ "title" : "TBA",
+ "speaker_name" : "Maxim Cramer",
+ "t_id" : "session4Day2",
+ "t_index" : 1
+ },
+ {
+ "title" : "Object-Oriented Programming in Objective-C - because everyone else will be doing Functional Programming in Swift ;)",
+ "speaker_name" : "Graham Lee",
+ "t_id" : "session4Day2",
+ "t_index" : 2
+ },
+ {
+ "name" : "Heimathafen Neukölln",
+ "address" : "Karl-Marx-Str. 141, 12043 Berlin",
+ "description" : "Conference venue"
+ },
+ {
+ "name" : "Motel One",
+ "address" : "Prinzenstraße 40, 10969 Berlin",
+ "description" : "Speakers Hotel"
+ },
+ {
+ "name" : "betahaus",
+ "address" : "Prinzessinenstraße 19-20, 10969 Berlin",
+ "description" : "Hackathon venue"
+ },
+ {
+ "name" : "infarm",
+ "address" : "Fuldastr. 39, Berlin 12045",
+ "description" : "Pre conference party location"
+ },
+ {
+ "name" : "Schlesisch Blau",
+ "address" : "Köpenicker Straße 1A, 10997 Berlin",
+ "description" : "Speakers dinner, restaurant"
+ },
+ {
+ "name" : "RosaCaleta",
+ "address" : "Muskauer Str. 9, 10997 Berlin",
+ "description" : "Scholarship dinner, restaurant"
+ },
+ {
+ "name" : "Klunkerkranich",
+ "address" : "Karl-Marx-Straße 66, 12043 Berlin",
+ "description" : "Party location"
+ }
+]
