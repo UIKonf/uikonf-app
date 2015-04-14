@@ -183,7 +183,7 @@ class OrganizerCell: UITableViewCell, EntityCell {
 class LocationCell: UITableViewCell, EntityCell {
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UITextView!
     
     func updateWithEntity(entity : Entity, context : Context){
         

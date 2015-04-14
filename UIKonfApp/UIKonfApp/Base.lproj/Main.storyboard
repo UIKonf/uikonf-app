@@ -393,33 +393,29 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtM-tf-USo">
-                                            <rect key="frame" x="8" y="36" width="359" height="28"/>
+                                            <rect key="frame" x="8" y="8" width="359" height="56"/>
                                             <fontDescription key="fontDescription" name="AntennaExtraCond-Bold" family="AntennaExtraCond" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mit-vJ-jQY">
-                                            <rect key="frame" x="8" y="54" width="359" height="45"/>
-                                            <string key="text">Label
-laksjd</string>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gvu-8R-L9T">
+                                            <rect key="frame" x="8" y="47" width="359" height="44"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <fontDescription key="fontDescription" name="BauOT" family="Bau OT" pointSize="10"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            <dataDetectorType key="dataDetectorTypes" address="YES"/>
+                                        </textView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="EtM-tf-USo" firstAttribute="trailing" secondItem="lfD-AG-0yp" secondAttribute="trailingMargin" id="3dh-59-7iV"/>
-                                        <constraint firstItem="mit-vJ-jQY" firstAttribute="trailing" secondItem="lfD-AG-0yp" secondAttribute="trailingMargin" id="NfH-0U-h0W"/>
-                                        <constraint firstItem="mit-vJ-jQY" firstAttribute="top" secondItem="lfD-AG-0yp" secondAttribute="topMargin" constant="46" id="W2p-3J-tjS"/>
-                                        <constraint firstItem="EtM-tf-USo" firstAttribute="top" secondItem="lfD-AG-0yp" secondAttribute="topMargin" constant="28" id="XyJ-Ah-WCu"/>
-                                        <constraint firstItem="mit-vJ-jQY" firstAttribute="leading" secondItem="lfD-AG-0yp" secondAttribute="leadingMargin" id="fB5-je-hGN"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="mit-vJ-jQY" secondAttribute="bottom" constant="-8" id="iwA-oO-iX3"/>
+                                        <constraint firstItem="EtM-tf-USo" firstAttribute="top" secondItem="lfD-AG-0yp" secondAttribute="topMargin" id="XyJ-Ah-WCu"/>
                                         <constraint firstItem="EtM-tf-USo" firstAttribute="leading" secondItem="lfD-AG-0yp" secondAttribute="leadingMargin" id="mDa-95-0K0"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="EtM-tf-USo" secondAttribute="bottom" constant="27" id="yEZ-vk-v8t"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="descriptionLabel" destination="mit-vJ-jQY" id="Hq2-7N-ywp"/>
+                                    <outlet property="descriptionLabel" destination="gvu-8R-L9T" id="4fx-9C-0C1"/>
                                     <outlet property="nameLabel" destination="EtM-tf-USo" id="H8E-Xa-sr4"/>
                                 </connections>
                             </tableViewCell>
