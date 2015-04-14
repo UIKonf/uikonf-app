@@ -6,16 +6,9 @@ class TimeLineViewController: UITableViewController {
     let context = Context()
     var groupOfEvents : Group!
     
-    let sectionNames = ["Before Conference", "Social Day", "First Day", "Second Day", "Hackathon", "The End"]
+    let sectionNames = ["Before Conference", "Social Events", "First Conference Day", "Second Conference Day", "Hackathon", "The End"]
     
-    var beforeTimeSlot : Entity!
-    var endTimeSlot : Entity!
-    var socialDaySlots : [Entity]!
-    var firstDaySlots : [Entity]!
-    var secondDaySlots : [Entity]!
-    var hackathonSlots : [Entity]!
-    
-    lazy var events : [[Entity]] = [[self.beforeTimeSlot], self.socialDaySlots, self.firstDaySlots, self.secondDaySlots, self.hackathonSlots, [self.endTimeSlot]]
+    var events : [[Entity]] = [[], [], [], [], [], []]
 
     lazy var reload : dispatch_block_t = dispatch_debounce_block(0.1) {
         let events = sorted(self.groupOfEvents) {
@@ -29,66 +22,23 @@ class TimeLineViewController: UITableViewController {
             return e1.get(StartTimeComponent)!.date.timeIntervalSinceReferenceDate < e2.get(StartTimeComponent)!.date.timeIntervalSinceReferenceDate
         }
         
-        self.beforeTimeSlot = events.first
-        self.endTimeSlot = events.last
+        for i in 0...5 {
+            self.events[i] = []
+        }
         
         let cal = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         
-        self.socialDaySlots = events.filter({
-            let dateComponents = NSDateComponents()
-            
-            dateComponents.year = 2015
-            dateComponents.month = 5
-            dateComponents.day = 17
-            
-            if let date = $0.get(StartTimeComponent)?.date {
-                return cal.date(date, matchesComponents: dateComponents)
-            }
-            return false
-        })
+        self.events[0].append(events.first!)
+        self.events[5].append(events.last!)
         
-        self.firstDaySlots = events.filter({
-            let dateComponents = NSDateComponents()
-            
-            dateComponents.year = 2015
-            dateComponents.month = 5
-            dateComponents.day = 18
-            
-            if let date = $0.get(StartTimeComponent)?.date {
-                return cal.date(date, matchesComponents: dateComponents)
+        for event in events {
+            if !event.has(StartTimeComponent) || !event.has(EndTimeComponent){
+                continue
             }
-            return false
-        })
-        
-        self.secondDaySlots = events.filter({
-            let dateComponents = NSDateComponents()
-            
-            dateComponents.year = 2015
-            dateComponents.month = 5
-            dateComponents.day = 19
-            
-            if let date = $0.get(StartTimeComponent)?.date {
-                return cal.date(date, matchesComponents: dateComponents)
-            }
-            return false
-        })
-        
-        self.hackathonSlots = events.filter({
-            let dateComponents = NSDateComponents()
-            
-            dateComponents.year = 2015
-            dateComponents.month = 5
-            dateComponents.day = 20
-            
-            if !$0.has(EndTimeComponent) {
-                return false
-            }
-            
-            if let date = $0.get(StartTimeComponent)?.date {
-                return cal.date(date, matchesComponents: dateComponents)
-            }
-            return false
-        })
+            let day = cal.component(NSCalendarUnit.CalendarUnitDay, fromDate: event.get(StartTimeComponent)!.date)
+            let index = day - 16
+            self.events[index].append(event)
+        }
         
         self.tableView.reloadData()
     }
@@ -126,21 +76,7 @@ extension TimeLineViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0 where beforeTimeSlot != nil :
-            return 1
-        case 5 where endTimeSlot != nil :
-            return 1
-        case 1 where socialDaySlots != nil :
-            return socialDaySlots.count
-        case 2 where firstDaySlots != nil :
-            return firstDaySlots.count
-        case 3 where secondDaySlots != nil :
-            return secondDaySlots.count
-        case 4 where hackathonSlots != nil :
-            return hackathonSlots.count
-        default : return 0
-        }
+        return events[section].count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
