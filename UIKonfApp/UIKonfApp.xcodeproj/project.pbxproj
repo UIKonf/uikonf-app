@@ -88,7 +88,7 @@
 		0BEB4A7E1AD2D66400CA94D7 /* EntitasExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntitasExtensions.swift; sourceTree = "<group>"; };
 		0BEB4A801AD4390200CA94D7 /* PhotoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoManager.swift; sourceTree = "<group>"; };
 		0BEB4A821AD4415300CA94D7 /* PersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
-		0BEB4A871AD449BF00CA94D7 /* Entitas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Entitas.framework; path = "/Users/mzaks/Library/Developer/Xcode/DerivedData/UIKonfApp-fmzqomkxyymggydongvndxowumxl/Build/Products/Debug-iphoneos/Entitas.framework"; sourceTree = "<absolute>"; };
+		0BEB4A871AD449BF00CA94D7 /* Entitas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Entitas.framework; path = "Entitas.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -454,11 +454,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/mzaks/dev/UIKonf/Entitas/build/Debug-iphoneos",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/UIKonfApp-fmzqomkxyymggydongvndxowumxl/Build/Products/Debug-iphoneos",
-				);
 				INFOPLIST_FILE = UIKonfApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -470,11 +465,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/mzaks/dev/UIKonf/Entitas/build/Debug-iphoneos",
-					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/UIKonfApp-fmzqomkxyymggydongvndxowumxl/Build/Products/Debug-iphoneos",
-				);
 				INFOPLIST_FILE = UIKonfApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
