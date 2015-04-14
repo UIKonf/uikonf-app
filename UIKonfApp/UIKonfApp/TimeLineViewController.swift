@@ -63,6 +63,31 @@ class TimeLineViewController: UITableViewController {
         self.navigationController?.navigationBar.titleTextAttributes = attributes
     }
     
+    @IBAction func scrollToNow(){
+        let now = NSDate()
+        let day = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!.component(NSCalendarUnit.CalendarUnitDay, fromDate: now)
+        if groupOfEvents.count == 0 {
+            return
+        }
+        
+        let nowSeconds = now.timeIntervalSince1970
+        
+        if nowSeconds < events[1][0].get(StartTimeComponent)!.date.timeIntervalSince1970 {
+            self.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), animated: true, scrollPosition: UITableViewScrollPosition.Top)
+        } else if nowSeconds >= events[5][0].get(StartTimeComponent)!.date.timeIntervalSince1970 {
+            self.tableView.selectRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 5), animated: true, scrollPosition: UITableViewScrollPosition.Top)
+        } else {
+            let section = day - 16
+            for (row, event) in enumerate(events[section]) {
+                
+                let (startSeconds, endSeconds) = (event.get(StartTimeComponent)!.date.timeIntervalSince1970, event.get(EndTimeComponent)!.date.timeIntervalSince1970)
+                
+                if nowSeconds >= startSeconds && now.timeIntervalSince1970 < endSeconds {
+                    self.tableView.selectRowAtIndexPath(NSIndexPath(forRow: row, inSection: section), animated: true, scrollPosition: UITableViewScrollPosition.Top)
+                }
+            }
+        }
+    }
 }
 
 extension TimeLineViewController {

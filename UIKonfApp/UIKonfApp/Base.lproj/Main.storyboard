@@ -154,7 +154,11 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="Time Line" id="ZhK-N6-Kre">
-                        <barButtonItem key="rightBarButtonItem" title="Now" id="44U-Sz-Q0h"/>
+                        <barButtonItem key="rightBarButtonItem" title="Now" id="44U-Sz-Q0h">
+                            <connections>
+                                <action selector="scrollToNow" destination="Q3F-Nf-Cm5" id="l66-Z8-i2b"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DKm-X3-m5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
