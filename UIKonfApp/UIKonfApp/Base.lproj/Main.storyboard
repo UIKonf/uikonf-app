@@ -96,6 +96,9 @@
                                                 <constraint firstAttribute="height" constant="79" id="oDW-DY-Byb"/>
                                             </constraints>
                                         </view>
+                                        <imageView userInteractionEnabled="NO" alpha="0.59999999999999964" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Line.png" translatesAutoresizingMaskIntoConstraints="NO" id="t6g-VN-6HJ">
+                                            <rect key="frame" x="15" y="8" width="352" height="1"/>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="centerY" secondItem="rL0-ls-tu7" secondAttribute="centerY" id="HOe-oi-LfO"/>
@@ -105,6 +108,7 @@
                                 <connections>
                                     <outlet property="dateLabel" destination="rYP-Rb-3h3" id="nTX-YB-9AF"/>
                                     <outlet property="descriptionLabel" destination="4ha-CB-eHS" id="cKH-XG-XbG"/>
+                                    <outlet property="lineImage" destination="t6g-VN-6HJ" id="yCP-L2-IOZ"/>
                                     <segue destination="LJN-79-JW2" kind="show" identifier="showTimeSlotDetails" id="4Dm-Zp-ANB"/>
                                 </connections>
                             </tableViewCell>
@@ -532,6 +536,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Line.png" width="602" height="2"/>
         <image name="UIKonf_logo.png" width="511" height="511"/>
         <image name="person-icon.png" width="649" height="659"/>
     </resources>

@@ -20,6 +20,11 @@ class EventCell: UITableViewCell, EntityCell {
     
     @IBOutlet weak var dateLabel: UILabel!
     
+    @IBOutlet weak var lineImage: UIImageView!
+    
+    weak var entity : Entity!
+    
+    
     func updateWithEntity(entity : Entity, context : Context){
         descriptionLabel.text = entity.get(DescriptionComponent)?.description
         
@@ -33,6 +38,34 @@ class EventCell: UITableViewCell, EntityCell {
         let endTime = dateFormater.stringFromDate(endDate)
         
         dateLabel.text = "\(dateString)\n\(startTime) - \(endTime)"
+        
+        self.entity = entity
+        
+        setupLine()
+    }
+    
+    func setupLine(){
+        let now = NSDate().timeIntervalSince1970
+        let start = entity.get(StartTimeComponent)!.date.timeIntervalSince1970
+        let end = entity.get(EndTimeComponent)!.date.timeIntervalSince1970
+        
+        if now >= start && now < end {
+            
+            let factorElapsed = CGFloat((now - start) / (end - start))
+            let cellHeight = self.frame.height
+            let cellWidth = self.frame.width
+            UIView.animateWithDuration(0.1, animations: { () -> Void in
+                self.lineImage.frame = CGRect(x: 20, y: cellHeight * factorElapsed, width: cellWidth - 20, height: 1)
+            }, completion: { [weak self] (completed) -> Void in
+                self?.setupLine()
+            })
+            
+            
+            self.lineImage!.hidden = false
+            
+        } else {
+            self.lineImage!.hidden = true
+        }
     }
     
 }
