@@ -119,6 +119,32 @@ class ContextTests: XCTestCase {
         // then
         XCTAssertEqual(group.count, 0)
     }
+    
+    func test_should_destroy_all_entities_check_all_group_to_be_empty(){
+        // given
+        var (e1, e2, e3) = createThreeEntities()
+        
+        let group = context.entityGroup(Matcher.All(NameComponent, AgeComponent))
+        
+        // when
+        context.destroyAllEntities()
+        
+        // then
+        XCTAssertEqual(group.count, 0)
+    }
+    
+    func test_should_destroy_all_entities_check_any_group_to_be_empty(){
+        // given
+        var (e1, e2, e3) = createThreeEntities()
+        
+        let group = context.entityGroup(Matcher.Any(NameComponent, AgeComponent))
+        
+        // when
+        context.destroyAllEntities()
+        
+        // then
+        XCTAssertEqual(group.count, 0)
+    }
 
     func createThreeEntities() -> (e1:Entity, e2:Entity, e3:Entity) {
         let e1 = context.createEntity()

@@ -66,6 +66,14 @@ public class Context : _EntityChangedListener {
         entities.remove(entity)
     }
     
+    /// Destroy all entities for example if you want to have a soft reload.
+    /// Groups are not distroyed, therefor all observers will be notified.
+    public func destroyAllEntities() {
+        for e in entities {
+            destroyEntity(e)
+        }
+    }
+    
     func fillGroupWithEntities(group : Group){
         for e in entities {
             if group.matcher.isMatching(e){

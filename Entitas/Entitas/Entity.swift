@@ -137,6 +137,7 @@ public final class Entity {
     
     func destroy() {
         for component in components {
+            _components.removeValueForKey(cId(component))
             mainListener.componentRemoved(self, component: component)
         }
         for observer in observers {
