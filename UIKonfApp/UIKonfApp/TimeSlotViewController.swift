@@ -12,7 +12,7 @@ import Entitas
 
 let (Talks, Workshop, SocialActivities, Locations, Organizers) = ("Talks", "Workshop", "Social Activities", "Locations", "Help or Questions:")
 
-class TimeSlotViewController : UITableViewController {
+class TimeSlotViewController : UITableViewController, GroupObserver {
     
     var talks : [Entity]?
     var workshop : Entity?
@@ -42,6 +42,7 @@ class TimeSlotViewController : UITableViewController {
         }
         
         organizers = context.entityGroup(Matcher.All(OrganizerComponent)).sortedEntities
+        
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -162,7 +163,6 @@ class TimeSlotViewController : UITableViewController {
         
         return cell as! UITableViewCell
     }
-
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         super.prepareForSegue(segue, sender: sender)
@@ -170,6 +170,29 @@ class TimeSlotViewController : UITableViewController {
             let vc = segue.destinationViewController as! PersonViewController
             vc.context = context
         }
+    }
+    
+    // MARK: Group Observer related code
+    
+    func entityAdded(entity : Entity){
+        if self.navigationController?.topViewController != self{
+            return
+        }
+        if entity.has(NameComponent) && entity.has(PhotoComponent) {
+            performSegueWithIdentifier("showPersonDetails", sender: self)
+        }
+    }
+    
+    func entityRemoved(entity : Entity, withRemovedComponent removedComponent : Component){}
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        context.entityGroup(Matcher.All(NameComponent, PhotoComponent, SelectedComponent)).addObserver(self)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        context.entityGroup(Matcher.All(NameComponent, PhotoComponent, SelectedComponent)).removeObserver(self)
     }
     
 }

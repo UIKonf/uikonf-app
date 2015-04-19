@@ -293,33 +293,17 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nv6-rL-nig">
-                                            <rect key="frame" x="8" y="10" width="80" height="78"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="78" id="I1q-Rc-bsb"/>
-                                                <constraint firstAttribute="width" constant="80" id="tlp-Ji-yzh"/>
-                                            </constraints>
-                                            <state key="normal">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="selectPerson" destination="YhF-IN-cJM" eventType="touchUpInside" id="V4m-er-Xyx"/>
-                                                <segue destination="7cJ-Dv-4EQ" kind="show" identifier="showPersonDetails" id="tsN-yg-PBB"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Rl9-N4-6r0" firstAttribute="top" secondItem="PwZ-Wv-J8j" secondAttribute="bottom" constant="2" id="1mj-fT-BdR"/>
                                         <constraint firstItem="PwZ-Wv-J8j" firstAttribute="top" secondItem="jzz-6D-ifZ" secondAttribute="bottom" constant="1" id="45D-GE-Wlw"/>
                                         <constraint firstItem="aXA-zJ-yi6" firstAttribute="leading" secondItem="SmJ-y9-IzO" secondAttribute="trailing" constant="8" id="A1Z-r8-bMK"/>
                                         <constraint firstItem="z00-Ap-yIk" firstAttribute="top" secondItem="PwZ-Wv-J8j" secondAttribute="bottom" constant="2" id="AMP-5A-6Tb"/>
-                                        <constraint firstItem="nv6-rL-nig" firstAttribute="top" secondItem="ksj-cE-yAS" secondAttribute="topMargin" constant="2" id="Bw6-eV-Pgj"/>
                                         <constraint firstItem="jzz-6D-ifZ" firstAttribute="trailing" secondItem="ksj-cE-yAS" secondAttribute="trailingMargin" id="ERG-Od-NYl"/>
                                         <constraint firstItem="z00-Ap-yIk" firstAttribute="leading" secondItem="Rl9-N4-6r0" secondAttribute="trailing" constant="8" id="HIs-u8-eQH"/>
                                         <constraint firstItem="PwZ-Wv-J8j" firstAttribute="leading" secondItem="ahk-rp-aB3" secondAttribute="trailing" constant="8" id="SdZ-T4-nBS"/>
                                         <constraint firstItem="Rl9-N4-6r0" firstAttribute="leading" secondItem="ZSE-DD-E7m" secondAttribute="trailing" constant="8" id="SeG-x4-1VI"/>
                                         <constraint firstItem="SmJ-y9-IzO" firstAttribute="top" secondItem="PwZ-Wv-J8j" secondAttribute="bottom" constant="2" id="Ta0-5c-0nw"/>
-                                        <constraint firstItem="nv6-rL-nig" firstAttribute="leading" secondItem="ksj-cE-yAS" secondAttribute="leadingMargin" id="XBQ-nx-qB0"/>
                                         <constraint firstItem="PwZ-Wv-J8j" firstAttribute="trailing" secondItem="ksj-cE-yAS" secondAttribute="trailingMargin" id="XCX-RC-CvY"/>
                                         <constraint firstItem="jzz-6D-ifZ" firstAttribute="leading" secondItem="ahk-rp-aB3" secondAttribute="trailing" constant="8" id="XgC-hg-hHH"/>
                                         <constraint firstItem="ahk-rp-aB3" firstAttribute="leading" secondItem="ksj-cE-yAS" secondAttribute="leadingMargin" id="aNa-p6-rSb"/>
@@ -365,20 +349,6 @@
                                                 <constraint firstAttribute="width" constant="80" id="zHO-j1-CUC"/>
                                             </constraints>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7RH-tq-lbE">
-                                            <rect key="frame" x="8" y="10" width="80" height="78"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="80" id="Dxh-g6-kIQ"/>
-                                                <constraint firstAttribute="height" constant="78" id="erh-Tl-sCf"/>
-                                            </constraints>
-                                            <state key="normal">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="selectPerson" destination="9az-yx-3tu" eventType="touchUpInside" id="Jv0-IZ-w4S"/>
-                                                <segue destination="7cJ-Dv-4EQ" kind="show" identifier="showPersonDetails" id="Xpa-Wz-nI8"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="lpN-vt-KYM" firstAttribute="top" secondItem="YUe-Ap-ihZ" secondAttribute="topMargin" constant="18" id="9jl-mM-urF"/>
@@ -386,8 +356,6 @@
                                         <constraint firstItem="lpN-vt-KYM" firstAttribute="leading" secondItem="NiT-He-qgW" secondAttribute="trailing" constant="8" id="eVp-7R-bDx"/>
                                         <constraint firstItem="lpN-vt-KYM" firstAttribute="trailing" secondItem="YUe-Ap-ihZ" secondAttribute="trailingMargin" id="lJ3-cc-y0G"/>
                                         <constraint firstItem="NiT-He-qgW" firstAttribute="top" secondItem="YUe-Ap-ihZ" secondAttribute="topMargin" id="pOS-MH-tuD"/>
-                                        <constraint firstItem="7RH-tq-lbE" firstAttribute="leading" secondItem="YUe-Ap-ihZ" secondAttribute="leadingMargin" id="thw-VJ-2DY"/>
-                                        <constraint firstItem="7RH-tq-lbE" firstAttribute="top" secondItem="YUe-Ap-ihZ" secondAttribute="topMargin" constant="2" id="wrb-KD-5gg"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -437,6 +405,9 @@
                             <outlet property="delegate" destination="LJN-79-JW2" id="4nY-fX-SqT"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="7cJ-Dv-4EQ" kind="show" identifier="showPersonDetails" id="1g0-zf-3ZK"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vMr-Rr-cJN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -540,7 +511,4 @@
         <image name="UIKonf_logo.png" width="511" height="511"/>
         <image name="person-icon.png" width="649" height="659"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Xpa-Wz-nI8"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -35,43 +35,50 @@
 		"t_id" : "session1Day1",
 		"startTime" : "18-10-00",
 		"endTime" : "18-11-10",
-		"description" : "First session"
+ "description" : "First session",
+ "locations" : ["Heimathafen Neukölln"]
 	},
 	{
 		"t_id" : "break1Day1",
 		"startTime" : "18-11-10",
 		"endTime" : "18-11-50",
-		"description" : "First coffee break"
+ "description" : "First coffee break",
+ "locations" : ["Heimathafen Neukölln"]
 	},
 	{
 		"t_id" : "session2Day1",
 		"startTime" : "18-11-50",
 		"endTime" : "18-13-00",
-		"description" : "Second session"
+ "description" : "Second session",
+ "locations" : ["Heimathafen Neukölln"]
 	},
 	{
 		"t_id" : "lunchDay1",
 		"startTime" : "18-13-00",
 		"endTime" : "18-14-30",
-		"description" : "Lunch break"
+ "description" : "Lunch break",
+ "locations" : ["Heimathafen Neukölln"]
 	},
 	{
 		"t_id" : "session3Day1",
 		"startTime" : "18-14-30",
 		"endTime" : "18-16-15",
-		"description" : "Third session"
+ "description" : "Third session",
+ "locations" : ["Heimathafen Neukölln"]
 	},
 	{
 		"t_id" : "break2Day1",
 		"startTime" : "18-16-15",
 		"endTime" : "18-17-00",
-		"description" : "Second coffee break"
+ "description" : "Second coffee break",
+ "locations" : ["Heimathafen Neukölln"]
 	},
 	{
 		"t_id" : "session4Day1",
 		"startTime" : "18-17-00",
 		"endTime" : "18-18-10",
-		"description" : "Last session of the first day"
+ "description" : "Last session of the first day",
+ "locations" : ["Heimathafen Neukölln"]
 	},
 	{
 		"t_id" : "endOfDay1",
@@ -91,43 +98,50 @@
 		"t_id" : "session1Day2",
 		"startTime" : "19-10-00",
 		"endTime" : "19-11-10",
-		"description" : "First session day two"
+ "description" : "First session day two",
+ "locations" : ["Heimathafen Neukölln"]
 	},
 	{
 		"t_id" : "break1Day2",
 		"startTime" : "19-11-10",
 		"endTime" : "19-11-50",
-		"description" : "First break day two"
+ "description" : "First break day two",
+ "locations" : ["Heimathafen Neukölln"]
 	},
 	{
 		"t_id" : "session2Day2",
 		"startTime" : "19-11-50",
 		"endTime" : "19-13-00",
-		"description" : "Second session"
+ "description" : "Second session",
+ "locations" : ["Heimathafen Neukölln"]
 	},
 	{
 		"t_id" : "lunchDay2",
 		"startTime" : "19-13-00",
 		"endTime" : "19-14-30",
-		"description" : "Lunch break"
+ "description" : "Lunch break",
+ "locations" : ["Heimathafen Neukölln"]
 	},
 	{
 		"t_id" : "session3Day2",
 		"startTime" : "19-14-30",
 		"endTime" : "19-16-15",
-		"description" : "Third session"
+ "description" : "Third session",
+ "locations" : ["Heimathafen Neukölln"]
 	},
 	{
 		"t_id" : "break2Day2",
 		"startTime" : "19-16-15",
 		"endTime" : "19-17-00",
-		"description" : "Second break"
+ "description" : "Second break",
+ "locations" : ["Heimathafen Neukölln"]
 	},
 	{
 		"t_id" : "session4Day2",
 		"startTime" : "19-17-00",
 		"endTime" : "19-18-10",
-		"description" : "Last session"
+ "description" : "Last session",
+ "locations" : ["Heimathafen Neukölln"]
 	},
 	{
 		"t_id" : "beforeParty",

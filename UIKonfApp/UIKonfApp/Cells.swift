@@ -23,6 +23,8 @@ class EventCell: UITableViewCell, EntityCell {
     @IBOutlet weak var lineImage: UIImageView!
     
     weak var entity : Entity!
+    var startTime : NSTimeInterval!
+    var endTime : NSTimeInterval!
     
     
     func updateWithEntity(entity : Entity, context : Context){
@@ -30,14 +32,19 @@ class EventCell: UITableViewCell, EntityCell {
         
         let startDate = entity.get(StartTimeComponent)!.date
         let endDate = entity.get(EndTimeComponent)!.date
+        
+        self.startTime = startDate.timeIntervalSince1970
+        self.endTime = endDate.timeIntervalSince1970
+        
         let dateFormater  = NSDateFormatter()
         dateFormater.setLocalizedDateFormatFromTemplate("ddMMM")
         let dateString = dateFormater.stringFromDate(startDate)
         dateFormater.setLocalizedDateFormatFromTemplate("hhmm")
-        let startTime = dateFormater.stringFromDate(startDate)
-        let endTime = dateFormater.stringFromDate(endDate)
         
-        dateLabel.text = "\(dateString)\n\(startTime) - \(endTime)"
+        let startTimeString = dateFormater.stringFromDate(startDate)
+        let endTimeString = dateFormater.stringFromDate(endDate)
+        
+        dateLabel.text = "\(dateString)\n\(startTimeString) - \(endTimeString)"
         
         self.entity = entity
         
@@ -46,12 +53,10 @@ class EventCell: UITableViewCell, EntityCell {
     
     func setupLine(){
         let now = NSDate().timeIntervalSince1970
-        let start = entity.get(StartTimeComponent)!.date.timeIntervalSince1970
-        let end = entity.get(EndTimeComponent)!.date.timeIntervalSince1970
         
-        if now >= start && now < end {
+        if now >= startTime && now < endTime {
             
-            let factorElapsed = CGFloat((now - start) / (end - start))
+            let factorElapsed = CGFloat((now - startTime) / (endTime - startTime))
             let cellHeight = self.frame.height
             let cellWidth = self.frame.width
             UIView.animateWithDuration(0.1, animations: { () -> Void in
@@ -150,11 +155,20 @@ class TalkCell: UITableViewCell, EntityCell, EntityChangedListener {
         
     }
     
-    @IBAction func selectPerson(){
-        for e in context.entityGroup(Matcher.All(NameComponent, PhotoComponent, SelectedComponent)){
-            e.remove(SelectedComponent)
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        if context == nil || personEntity == nil {
+            return
         }
-        personEntity?.set(SelectedComponent())
+        
+        if selected {
+            personEntity?.set(SelectedComponent())
+        } else {
+            for e in context.entityGroup(Matcher.All(NameComponent, PhotoComponent, SelectedComponent)){
+                e.remove(SelectedComponent)
+            }
+        }
     }
     
     @IBAction func rate(sender : UIButton) {
@@ -203,11 +217,20 @@ class OrganizerCell: UITableViewCell, EntityCell {
         
     }
     
-    @IBAction func selectPerson(){
-        for e in context.entityGroup(Matcher.All(NameComponent, PhotoComponent, SelectedComponent)){
-            e.remove(SelectedComponent)
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        if context == nil || personEntity == nil {
+            return
         }
-        personEntity?.set(SelectedComponent())
+        
+        if selected {
+            personEntity?.set(SelectedComponent())
+        } else {
+            for e in context.entityGroup(Matcher.All(NameComponent, PhotoComponent, SelectedComponent)){
+                e.remove(SelectedComponent)
+            }
+        }
     }
     
 }
