@@ -65,8 +65,8 @@ let converters : [String : Converter] = [
 
 func readDataIntoContext(context : Context) {
     
-    let jsonURL = NSBundle.mainBundle().URLForResource("uikonfData", withExtension: "json")!
-    let jsonData = NSData(contentsOfURL: jsonURL)
+    let path = filePathsFromDocumentsFolder()[1]
+    let jsonData = NSData(contentsOfFile: path)
     
     var jsonArray = NSJSONSerialization.JSONObjectWithData(jsonData!, options: nil, error: nil) as! NSArray
     
@@ -99,8 +99,36 @@ func dateFromString(string : String) -> NSDate {
     dateComponents.hour = components[1]
     dateComponents.minute = components[2]
     
-    
-    
     let result = calendar.dateFromComponents(dateComponents)
     return result!
+}
+
+
+let fileNames = ["dataVersion.txt", "uikonfData.json"]
+
+func filePathsFromDocumentsFolder() -> [String]{
+    
+    func filePaths() -> [String] {
+        var result : [String] = []
+        if let docPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true).first as? String {
+            
+            for fileName in fileNames {
+                result.append(docPath.stringByAppendingPathComponent(fileName))
+            }
+            
+        }
+        return result
+    }
+    
+    let paths = filePaths()
+    
+    let fileManager = NSFileManager.defaultManager()
+    for (index, path) in enumerate(paths) {
+        if !fileManager.fileExistsAtPath(path) {
+            let resourcePath = NSBundle.mainBundle().resourcePath!.stringByAppendingPathComponent(fileNames[index])
+            fileManager.copyItemAtPath(resourcePath, toPath: path, error: nil)
+        }
+    }
+    
+    return paths
 }
