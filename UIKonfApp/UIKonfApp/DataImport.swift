@@ -64,6 +64,9 @@ let converters : [String : Converter] = [
 
 
 func readDataIntoContext(context : Context) {
+
+    
+    context.destroyAllEntities()
     
     let path = filePathsFromDocumentsFolder()[1]
     let jsonData = NSData(contentsOfFile: path)
@@ -88,7 +91,7 @@ let calendar : NSCalendar = {
     return cal;
 }()
 
-func dateFromString(string : String) -> NSDate {
+private func dateFromString(string : String) -> NSDate {
     
     let dateComponents = NSDateComponents()
     
@@ -103,8 +106,9 @@ func dateFromString(string : String) -> NSDate {
     return result!
 }
 
+private let githubRawURL = "https://raw.githubusercontent.com/UIKonf/uikonf-app/master/UIKonfApp/UIKonfApp/"
 
-let fileNames = ["dataVersion.txt", "uikonfData.json"]
+private let fileNames = ["dataVersion.txt", "uikonfData.json"]
 
 func filePathsFromDocumentsFolder() -> [String]{
     
@@ -131,4 +135,42 @@ func filePathsFromDocumentsFolder() -> [String]{
     }
     
     return paths
+}
+
+private var cancelSync : dispatch_block_t?
+
+func syncData(context : Context){
+    
+    cancelSync?()
+    
+    cancelSync = dispatch_after_cancellable(0.1, dispatch_get_global_queue(QOS_CLASS_DEFAULT, 0)) {
+    
+        let error : NSErrorPointer = nil
+        let urls = fileNames.map({NSURL(string:githubRawURL.stringByAppendingPathComponent($0))})
+        let onlineDataVersion = NSString(contentsOfURL: urls[0]!, encoding: NSUTF8StringEncoding, error: error)
+    
+        if error != nil || onlineDataVersion == nil{
+            println("could not access online version file")
+            return
+        }
+    
+        let paths = filePathsFromDocumentsFolder()
+        
+        let localVersion = NSString(contentsOfFile: paths[0], encoding: NSUTF8StringEncoding, error: nil)
+    
+        if onlineDataVersion == localVersion {
+            println("versions are same")
+            return
+        }
+        
+        for (index, path) in enumerate(paths) {
+            let data = NSData(contentsOfURL: urls[index]!)!
+            data.writeToFile(path, atomically: true)
+        }
+        
+        println("copied all files")
+        dispatch_async(dispatch_get_main_queue(), {
+            readDataIntoContext(context)
+        })
+    }
 }

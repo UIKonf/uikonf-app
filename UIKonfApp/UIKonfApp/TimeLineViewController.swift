@@ -3,14 +3,17 @@ import Entitas
 
 class TimeLineViewController: UITableViewController {
 
-    let context = Context()
+    let context = (UIApplication.sharedApplication().delegate as! AppDelegate).context
     var groupOfEvents : Group!
     
     let sectionNames = ["Before Conference", "Social Events", "First Conference Day", "Second Conference Day", "Hackathon", "The End"]
     
     var events : [[Entity]] = [[], [], [], [], [], []]
 
-    lazy var reload : dispatch_block_t = dispatch_debounce_block(0.1) {
+    private lazy var reload : dispatch_block_t = dispatch_debounce_block(0.1) {
+        
+        self.navigationController?.popToRootViewControllerAnimated(true)
+        
         let events = sorted(self.groupOfEvents) {
             e1 , e2 in
             if !e1.has(StartTimeComponent) {
@@ -26,8 +29,6 @@ class TimeLineViewController: UITableViewController {
             self.events[i] = []
         }
         
-        let cal = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
-        
         self.events[0].append(events.first!)
         self.events[5].append(events.last!)
         
@@ -35,7 +36,7 @@ class TimeLineViewController: UITableViewController {
             if !event.has(StartTimeComponent) || !event.has(EndTimeComponent){
                 continue
             }
-            let day = cal.component(NSCalendarUnit.CalendarUnitDay, fromDate: event.get(StartTimeComponent)!.date)
+            let day = calendar.component(NSCalendarUnit.CalendarUnitDay, fromDate: event.get(StartTimeComponent)!.date)
             let index = day - 16
             self.events[index].append(event)
         }
@@ -53,6 +54,9 @@ class TimeLineViewController: UITableViewController {
         groupOfEvents.addObserver(self)
         
         readDataIntoContext(context)
+        
+        syncData(context)
+        
     }
     
     func setNavigationTitleFont(){
@@ -65,7 +69,7 @@ class TimeLineViewController: UITableViewController {
     
     @IBAction func scrollToNow(){
         let now = NSDate()
-        let day = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!.component(NSCalendarUnit.CalendarUnitDay, fromDate: now)
+        let day = calendar.component(NSCalendarUnit.CalendarUnitDay, fromDate: now)
         if groupOfEvents.count == 0 {
             return
         }

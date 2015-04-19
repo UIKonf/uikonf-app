@@ -168,6 +168,18 @@ class DataImportTest: XCTestCase {
         
         XCTAssert(testRun, "we run the index assertions")
     }
+    
+    func test_all_time_slots_are_imported_only_once() {
+        // give
+        let timeSlotsGroup = context.entityGroup(Matcher.Any(StartTimeComponent, EndTimeComponent))
+        
+        // when
+        readDataIntoContext(context)
+        readDataIntoContext(context)
+        
+        // then
+        XCTAssertEqual(timeSlotsGroup.count, 27, "we have 27 time slots")
+    }
 }
 
 func timeSlotIndexForGroup(matcher : Matcher, context : Context) -> SimpleLookup<String> {
