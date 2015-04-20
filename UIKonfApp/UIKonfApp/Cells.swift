@@ -26,6 +26,8 @@ class EventCell: UITableViewCell, EntityCell {
     var startTime : NSTimeInterval!
     var endTime : NSTimeInterval!
     
+    var timer : NSTimer!
+    
     
     func updateWithEntity(entity : Entity, context : Context){
         descriptionLabel.text = entity.get(DescriptionComponent)?.description
@@ -48,6 +50,10 @@ class EventCell: UITableViewCell, EntityCell {
         
         self.entity = entity
         
+        if(timer == nil){
+            timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("setupLine"), userInfo: nil, repeats: true)
+        }
+        
         setupLine()
     }
     
@@ -59,13 +65,8 @@ class EventCell: UITableViewCell, EntityCell {
             let factorElapsed = CGFloat((now - startTime) / (endTime - startTime))
             let cellHeight = self.frame.height
             let cellWidth = self.frame.width
-            UIView.animateWithDuration(0.1, animations: { () -> Void in
-                self.lineImage.frame = CGRect(x: 20, y: cellHeight * factorElapsed, width: cellWidth - 20, height: 1)
-            }, completion: { [weak self] (completed) -> Void in
-                self?.setupLine()
-            })
-            
-            
+
+            self.lineImage.frame = CGRect(x: 15, y: cellHeight * factorElapsed, width: cellWidth - 20, height: 1)
             self.lineImage!.hidden = false
             
         } else {
