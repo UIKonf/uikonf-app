@@ -103,6 +103,14 @@ struct LocationsComponent : Component, DebugPrintable {
     }
 }
 
+struct RatingComponent : Component, DebugPrintable {
+    let rating : Int
+    var debugDescription: String{
+        return "[\(rating)]"
+    }
+}
+
+
 struct OrganizerComponent : Component {}
 
 struct SelectedComponent : Component {}

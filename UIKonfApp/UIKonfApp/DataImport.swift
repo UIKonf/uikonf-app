@@ -68,7 +68,7 @@ func readDataIntoContext(context : Context) {
     
     context.destroyAllEntities()
     
-    let path = filePathsFromDocumentsFolder()[1]
+    let path = filePathsFromDocumentsFolder()[0]
     let jsonData = NSData(contentsOfFile: path)
     
     var jsonArray = NSJSONSerialization.JSONObjectWithData(jsonData!, options: nil, error: nil) as! NSArray
@@ -81,6 +81,16 @@ func readDataIntoContext(context : Context) {
             
             let component = converters[key]!(value)
             entity.set(component)
+        }
+    }
+    
+    if let ratings = NSUserDefaults.standardUserDefaults().dictionaryForKey("ratings") {
+        for entity in context.entityGroup(Matcher.All(TitleComponent, SpeakerNameComponent)) {
+            let title = entity.get(TitleComponent)!.title
+            if let rating = (ratings as! [String:Int])[title] {
+                entity.set(RatingComponent(rating:rating))
+            }
+            
         }
     }
 }
@@ -108,7 +118,7 @@ private func dateFromString(string : String) -> NSDate {
 
 private let githubRawURL = "https://raw.githubusercontent.com/UIKonf/uikonf-app/master/UIKonfApp/UIKonfApp/"
 
-private let fileNames = ["dataVersion.txt", "uikonfData.json"]
+private let fileNames = ["uikonfData.json", "dataVersion.txt"] // data version file have to be at the end because. This way when dowloading, we make sure that we haven't lost internet connection.
 
 func filePathsFromDocumentsFolder() -> [String]{
     
@@ -147,7 +157,7 @@ func syncData(context : Context){
     
         let error : NSErrorPointer = nil
         let urls = fileNames.map({NSURL(string:githubRawURL.stringByAppendingPathComponent($0))})
-        let onlineDataVersion = NSString(contentsOfURL: urls[0]!, encoding: NSUTF8StringEncoding, error: error)
+        let onlineDataVersion = NSString(contentsOfURL: urls[1]!, encoding: NSUTF8StringEncoding, error: error)
     
         if error != nil || onlineDataVersion == nil{
             println("could not access online version file")
@@ -156,7 +166,7 @@ func syncData(context : Context){
     
         let paths = filePathsFromDocumentsFolder()
         
-        let localVersion = NSString(contentsOfFile: paths[0], encoding: NSUTF8StringEncoding, error: nil)
+        let localVersion = NSString(contentsOfFile: paths[1], encoding: NSUTF8StringEncoding, error: nil)
     
         if onlineDataVersion == localVersion {
             println("versions are same")
@@ -164,8 +174,12 @@ func syncData(context : Context){
         }
         
         for (index, path) in enumerate(paths) {
-            let data = NSData(contentsOfURL: urls[index]!)!
-            data.writeToFile(path, atomically: true)
+            let data = NSData(contentsOfURL: urls[index]!)
+            if data == nil {
+                println("files could not be copied maybe lost of internet connection")
+                return
+            }
+            data!.writeToFile(path, atomically: true)
         }
         
         println("copied all files")

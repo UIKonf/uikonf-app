@@ -31,6 +31,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
+        let group = context.entityGroup(Matcher.All(RatingComponent, TitleComponent))
+        var ratings : [String:Int] = [:]
+        for entity in group {
+            ratings[entity.get(TitleComponent)!.title] = entity.get(RatingComponent)!.rating
+        }
+        NSUserDefaults.standardUserDefaults().setObject(ratings, forKey: "ratings")
     }
 
     func applicationWillEnterForeground(application: UIApplication) {

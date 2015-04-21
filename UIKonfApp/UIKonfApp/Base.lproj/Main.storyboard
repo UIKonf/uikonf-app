@@ -321,11 +321,11 @@
                                     <outlet property="speakerNameLabel" destination="PwZ-Wv-J8j" id="9DQ-ME-xRK"/>
                                     <outlet property="speakerPhoto" destination="ahk-rp-aB3" id="lQI-kJ-s7L"/>
                                     <outlet property="talkTitleLabel" destination="jzz-6D-ifZ" id="daF-9H-dRI"/>
-                                    <outletCollection property="stars" destination="ZSE-DD-E7m" collectionClass="NSMutableArray" id="YUj-oh-S0V"/>
-                                    <outletCollection property="stars" destination="Rl9-N4-6r0" collectionClass="NSMutableArray" id="tke-vs-eoU"/>
-                                    <outletCollection property="stars" destination="z00-Ap-yIk" collectionClass="NSMutableArray" id="M8u-Ts-GSI"/>
-                                    <outletCollection property="stars" destination="SmJ-y9-IzO" collectionClass="NSMutableArray" id="f3L-vj-DHv"/>
-                                    <outletCollection property="stars" destination="aXA-zJ-yi6" collectionClass="NSMutableArray" id="inw-Bg-L7Y"/>
+                                    <outletCollection property="stars" destination="ZSE-DD-E7m" collectionClass="NSMutableArray" id="UHr-d2-hqk"/>
+                                    <outletCollection property="stars" destination="Rl9-N4-6r0" collectionClass="NSMutableArray" id="Y8K-0L-OPo"/>
+                                    <outletCollection property="stars" destination="z00-Ap-yIk" collectionClass="NSMutableArray" id="Bkq-Wq-kXV"/>
+                                    <outletCollection property="stars" destination="SmJ-y9-IzO" collectionClass="NSMutableArray" id="oQ6-Td-sG8"/>
+                                    <outletCollection property="stars" destination="aXA-zJ-yi6" collectionClass="NSMutableArray" id="j6T-hV-f6W"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="organizerCell" rowHeight="100" id="9az-yx-3tu" customClass="OrganizerCell" customModule="UIKonfApp" customModuleProvider="target">

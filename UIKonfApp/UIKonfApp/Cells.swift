@@ -128,15 +128,17 @@ class AfterConferenceCell: UITableViewCell, EntityCell {
 
 
 
-class TalkCell: UITableViewCell, EntityCell, EntityChangedListener {
+class TalkCell: UITableViewCell, EntityCell {
     
     @IBOutlet weak var talkTitleLabel: UILabel!
     @IBOutlet weak var speakerNameLabel: UILabel!
     @IBOutlet weak var speakerPhoto: UIImageView!
-    @IBOutlet weak var stars : NSArray!
+
+    @IBOutlet var stars: [UIButton]!
 
     private weak var context : Context!
     weak var personEntity : Entity?
+    weak var talkEntity : Entity?
     
     lazy var photoManager : PhotoManager = PhotoManager(imageView: self.speakerPhoto)
     
@@ -147,13 +149,14 @@ class TalkCell: UITableViewCell, EntityCell, EntityChangedListener {
     func updateWithEntity(entity : Entity, context : Context){
         
         self.context = context
-
+        
+        talkEntity = entity
         
         talkTitleLabel.text = entity.get(TitleComponent)!.title
         speakerNameLabel.text = "by \(entity.get(SpeakerNameComponent)!.name)"
         personEntity = Lookup.get(context).personLookup[entity.get(SpeakerNameComponent)!.name].first
         photoManager.entity = personEntity
-        
+        updateStars()
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
@@ -174,23 +177,29 @@ class TalkCell: UITableViewCell, EntityCell, EntityChangedListener {
     
     @IBAction func rate(sender : UIButton) {
         let selectedTimeSlot = context.entityGroup(Matcher.All(StartTimeComponent, SelectedComponent)).sortedEntities.first
-        if let startTimeComponent = selectedTimeSlot?.get(StartTimeComponent) {
+        if let endTimeComponent = selectedTimeSlot?.get(EndTimeComponent) {
             println("Rated with: \(sender.tag)")
-            if NSDate().timeIntervalSince1970 < startTimeComponent.date.timeIntervalSince1970 {
-                let alertView = UIAlertView(title: "Don't cheat", message: "You have to watch the talk first", delegate: nil, cancelButtonTitle: "OK")
+            if NSDate().timeIntervalSince1970 < endTimeComponent.date.timeIntervalSince1970 {
+                let alertView = UIAlertView(title: "Don't cheat", message: "You can rate after session is over.", delegate: nil, cancelButtonTitle: "OK")
                 alertView.show()
             } else {
-                // TODO: implement rating
+                talkEntity?.set(RatingComponent(rating:sender.tag), overwrite: true)
+                updateStars()
             }
         }
     }
     
-    func componentAdded(entity: Entity, component: Component){}
-    
-    func componentRemoved(entity: Entity, component: Component){}
-    
-    func entityDestroyed(){}
-    
+    func updateStars(){
+        if let rating = talkEntity?.get(RatingComponent)?.rating {
+            for button in stars {
+                if rating >= button.tag {
+                    button.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
+                } else {
+                    button.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+                }
+            }
+        }
+    }
 }
 
 
