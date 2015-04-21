@@ -58,9 +58,9 @@ public class Context : _EntityChangedListener {
         return group
     }
     
-    /// When you destroy an entity, the entity will remove all its components and by that it will alsoleave all the groups accordingly. 
+    /// When you destroy an entity, the entity will remove all its components and by that it will also leave all the groups accordingly.
     /// It will inform observers that it was destroyed.
-    /// Be cation about destroying entities. Most of the time flaging an entity with a componentcan do the job and is more appropriate according to data consistency.
+    /// Be caution about destroying entities. Most of the time flaging an entity with a componentcan do the job and is more appropriate according to data consistency.
     public func destroyEntity(entity : Entity) {
         entity.destroy()
         entities.remove(entity)
