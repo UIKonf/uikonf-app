@@ -53,6 +53,8 @@ class TimeLineViewController: UITableViewController {
         
         groupOfEvents.addObserver(self)
         
+        context.entityGroup(Matcher.All(RatingComponent)).addObserver(self)
+        
         readDataIntoContext(context)
         
         syncData(context)
@@ -65,6 +67,11 @@ class TimeLineViewController: UITableViewController {
         let attributes : [NSObject : AnyObject] = [fontKey : font]
         
         self.navigationController?.navigationBar.titleTextAttributes = attributes
+    }
+    
+    func updateSendButton(){
+        let button = UIBarButtonItem(title: "Send Ratings", style: UIBarButtonItemStyle.Plain, target: self, action: Selector("sendRatings"))
+        self.navigationItem.leftBarButtonItem = button
     }
     
     @IBAction func scrollToNow(){
@@ -91,6 +98,37 @@ class TimeLineViewController: UITableViewController {
                 }
             }
         }
+    }
+    
+    func sendRatings(){
+        let uuid = NSUserDefaults.standardUserDefaults().stringForKey("uuid")!
+        
+        let serverEntity = context.entityGroup(Matcher.All(ServerComponent)).sortedEntities.first!
+        var url: NSURL = serverEntity.get(ServerComponent)!.url.URLByAppendingPathComponent(uuid)
+        var request1: NSMutableURLRequest = NSMutableURLRequest(URL: url)
+        
+        request1.HTTPMethod = "POST"
+        
+        let ratings = ratingsDict(context)
+        let data = NSJSONSerialization.dataWithJSONObject(ratings, options: NSJSONWritingOptions(0), error: nil)
+        
+        request1.timeoutInterval = 60
+        request1.HTTPBody=data
+        request1.HTTPShouldHandleCookies=false
+        
+        let queue:NSOperationQueue = NSOperationQueue()
+        
+        NSURLConnection.sendAsynchronousRequest(request1, queue: queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
+            let alertView : UIAlertView
+            if error == nil {
+                alertView = UIAlertView(title: "Thank you", message: "You just sent \(ratings.count) ratings.", delegate: nil, cancelButtonTitle: "OK")
+            } else {
+                alertView = UIAlertView(title: "Ops, could not send", message: "Please try again later.", delegate: nil, cancelButtonTitle: "OK")
+            }
+            dispatch_async(dispatch_get_main_queue(), {
+                alertView.show()
+            })
+        })
     }
 }
 
@@ -168,7 +206,11 @@ extension TimeLineViewController {
 extension TimeLineViewController : GroupObserver {
     
     func entityAdded(entity : Entity) {
-        reload()
+        if entity.has(RatingComponent){
+            updateSendButton()
+        } else {
+            reload()
+        }
     }
     
     func entityRemoved(entity : Entity, withRemovedComponent removedComponent : Component) {

@@ -24,6 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIBarButtonItem.appearance().setTitleTextAttributes(attributes, forState:UIControlState.Normal)
         
+        if NSUserDefaults.standardUserDefaults().stringForKey("uuid") == nil {
+           NSUserDefaults.standardUserDefaults().setObject(NSUUID().UUIDString, forKey: "uuid")
+        }
+        
         return true
     }
 
@@ -31,12 +35,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
-        let group = context.entityGroup(Matcher.All(RatingComponent, TitleComponent))
-        var ratings : [String:Int] = [:]
-        for entity in group {
-            ratings[entity.get(TitleComponent)!.title] = entity.get(RatingComponent)!.rating
+        let ratings = ratingsDict(context)
+        if ratings.count > 0 {
+            NSUserDefaults.standardUserDefaults().setObject(ratings, forKey: "ratings")
         }
-        NSUserDefaults.standardUserDefaults().setObject(ratings, forKey: "ratings")
     }
 
     func applicationWillEnterForeground(application: UIApplication) {

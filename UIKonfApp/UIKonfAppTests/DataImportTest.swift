@@ -72,6 +72,17 @@ class DataImportTest: XCTestCase {
         XCTAssertEqual(group.count, 18, "we have 18 talks")
     }
     
+    func test_server_entity() {
+        // give
+        let group = context.entityGroup(Matcher.All(ServerComponent))
+        
+        // when
+        readDataIntoContext(context)
+        
+        // then
+        XCTAssertEqual(group.count, 1, "we have 1 server component")
+    }
+    
     func test_locations() {
         // give
         let group = context.entityGroup(Matcher.All(NameComponent, AddressComponent))

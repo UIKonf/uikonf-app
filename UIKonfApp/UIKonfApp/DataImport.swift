@@ -48,6 +48,9 @@ let converters : [String : Converter] = [
     "photo" : {
         PhotoComponent(url: NSURL(string:$0 as! String)!, image : UIImage(named:"person-icon")!, loaded: false)
     },
+    "server" : {
+        ServerComponent(url: NSURL(string:$0 as! String)!)
+    },
     "endTime" : {
         EndTimeComponent(date: dateFromString($0 as! String))
     },
@@ -187,4 +190,13 @@ func syncData(context : Context){
             readDataIntoContext(context)
         })
     }
+}
+
+func ratingsDict(context : Context) -> [String:Int] {
+    let group = context.entityGroup(Matcher.All(RatingComponent, TitleComponent))
+    var ratings : [String:Int] = [:]
+    for entity in group {
+        ratings[entity.get(TitleComponent)!.title] = entity.get(RatingComponent)!.rating
+    }
+    return ratings
 }

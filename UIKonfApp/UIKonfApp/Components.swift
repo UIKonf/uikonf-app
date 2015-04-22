@@ -53,6 +53,10 @@ struct PhotoComponent : Component, DebugPrintable {
     }
 }
 
+struct ServerComponent : Component {
+    let url : NSURL
+}
+
 struct SpeakerNameComponent : Component, DebugPrintable {
     let name : String
     var debugDescription: String{

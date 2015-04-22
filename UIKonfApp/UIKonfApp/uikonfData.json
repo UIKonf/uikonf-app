@@ -271,6 +271,9 @@
  "photo" : "http://www.uikonf.com/static/images/ClausHoefele.jpg"
  },
  {
+ "server" : "http://134.119.30.153:3000"
+ },
+ {
  "name" : "Eli Perkins",
  "twitter" : "@_eliperkins",
  "bio" : "Eli is an iOS Engineer at Venmo in NYC, working to make payments an easier, more social experience. A craft beer aficionado, esports evangelist, and a perennial yak shaver, his passion in iOS lies in pixel perfection and elegant engineering. His explorations in Swift and functional programming in both Objective-C and Swift have piqued his curiosity as of late.",
