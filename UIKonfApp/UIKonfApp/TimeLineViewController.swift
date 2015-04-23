@@ -214,6 +214,9 @@ extension TimeLineViewController : GroupObserver {
     }
     
     func entityRemoved(entity : Entity, withRemovedComponent removedComponent : Component) {
+        if removedComponent is RatingComponent {
+            return
+        }
         reload()
     }
 }
