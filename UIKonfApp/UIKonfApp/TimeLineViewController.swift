@@ -110,6 +110,7 @@ class TimeLineViewController: UITableViewController {
         request1.HTTPMethod = "POST"
         
         let ratings = ratingsDict(context)
+        let numberOfTalks = context.entityGroup(Matcher.All(TitleComponent, SpeakerNameComponent)).count
         let data = NSJSONSerialization.dataWithJSONObject(ratings, options: NSJSONWritingOptions(0), error: nil)
         
         request1.timeoutInterval = 60
@@ -121,7 +122,7 @@ class TimeLineViewController: UITableViewController {
         NSURLConnection.sendAsynchronousRequest(request1, queue: queue, completionHandler:{ (response: NSURLResponse!, data: NSData!, error: NSError!) -> Void in
             let alertView : UIAlertView
             if error == nil {
-                alertView = UIAlertView(title: "Thank you", message: "You just sent \(ratings.count) ratings.", delegate: nil, cancelButtonTitle: "OK")
+                alertView = UIAlertView(title: "Thank you", message: "You just rated \(ratings.count) out of \(numberOfTalks) talks.", delegate: nil, cancelButtonTitle: "OK")
             } else {
                 alertView = UIAlertView(title: "Ops, could not send", message: "Please try again later.", delegate: nil, cancelButtonTitle: "OK")
             }
