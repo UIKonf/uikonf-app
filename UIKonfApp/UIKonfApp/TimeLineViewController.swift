@@ -6,7 +6,7 @@ class TimeLineViewController: UITableViewController {
     let context = (UIApplication.sharedApplication().delegate as! AppDelegate).context
     var groupOfEvents : Group!
     
-    let sectionNames = ["Before Conference", "Social Events", "First Conference Day", "Second Conference Day", "Hackathon", "The End"]
+    let sectionNames = ["Before Conference", "Social Events Day", "First Conference Day", "Second Conference Day", "Hackathon Day", "The End"]
     
     var events : [[Entity]] = [[], [], [], [], [], []]
 
