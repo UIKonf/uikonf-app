@@ -173,7 +173,7 @@ extension TimeLineViewController {
         if(!event.has(StartTimeComponent)){
             height = 320
         } else if (!event.has(EndTimeComponent)) {
-            height = 800
+            height = 400
         } else {
             let duration = event.get(EndTimeComponent)!.date.timeIntervalSinceDate(event.get(StartTimeComponent)!.date)
             height = CGFloat(100 * sqrt(duration / (60 * 30)))

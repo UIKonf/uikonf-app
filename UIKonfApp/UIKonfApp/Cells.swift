@@ -120,10 +120,21 @@ class BeforeConferenceCell: UITableViewCell, EntityCell {
 
 class AfterConferenceCell: UITableViewCell, EntityCell {
     
-    func updateWithEntity(entity : Entity, context : Context){
-        
-    }
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
+    func updateWithEntity(entity : Entity, context : Context){
+        if let startDate = entity.get(StartTimeComponent)?.date {
+            if NSDate().timeIntervalSince1970 >= startDate.timeIntervalSince1970 {
+                titleLabel.text = "That's all folks!!!"
+                descriptionLabel.text = "Don't forget to Send Ratings"
+                
+            } else {
+                titleLabel.text = "Now scroll up!!!"
+                descriptionLabel.text = "Or tap on the Now button"
+            }
+        }
+    }
 }
 
 

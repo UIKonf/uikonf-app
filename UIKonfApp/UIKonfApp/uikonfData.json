@@ -8,7 +8,8 @@
 		"t_id" : "socialActivity",
 		"startTime" : "17-15-00",
 		"endTime" : "17-19-00",
-		"description" : "Social activities on sunday"
+        "description" : "Social activities on sunday",
+        "locations" : ["Bike Tour", "Berlin Museum of Technology", "Tempelhof Airport"]
 	},
 	{
 		"t_id" : "warmingParty",
@@ -434,11 +435,6 @@
  "description" : "Conference venue"
  },
  {
- "name" : "Motel One",
- "address" : "Prinzenstraße 40, 10969 Berlin",
- "description" : "Speakers Hotel"
- },
- {
  "name" : "betahaus",
  "address" : "Prinzessinenstraße 19-20, 10969 Berlin",
  "description" : "Hackathon venue"
@@ -449,18 +445,23 @@
  "description" : "Pre conference party location"
  },
  {
- "name" : "Schlesisch Blau",
- "address" : "Köpenicker Straße 1A, 10997 Berlin",
- "description" : "Speakers dinner, restaurant"
- },
- {
- "name" : "RosaCaleta",
- "address" : "Muskauer Str. 9, 10997 Berlin",
- "description" : "Scholarship dinner, restaurant"
- },
- {
  "name" : "Klunkerkranich",
  "address" : "Karl-Marx-Straße 66, 12043 Berlin",
  "description" : "Party location"
+ },
+ {
+ "name" : "Bike Tour",
+ "address" : "Karl-Marx-Str. 141, 12043 Berlin",
+ "description" : "Bike tour start location"
+ },
+ {
+ "name" : "Berlin Museum of Technology",
+ "address" : "Trebbiner Straße 9, 10963 Berlin",
+ "description" : "Start at the main entrance"
+ },
+ {
+ "name" : "Tempelhof Airport",
+ "address" : "Tempelhofer Damm 1, 12101 Berlin",
+ "description" : "Entrance across from the petrol station"
  }
 ]

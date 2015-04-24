@@ -117,7 +117,7 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="y7a-QW-K99" id="E89-0v-wWY">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We would like to thank our sponsores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Hx9-kl-NrU">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Or tap the Now button" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="Hx9-kl-NrU">
                                             <rect key="frame" x="8" y="116" width="359" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="fXv-eS-90n"/>
@@ -126,7 +126,7 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you for attending UIKonf" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="MRA-RI-V01">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scroll up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="MRA-RI-V01">
                                             <rect key="frame" x="8" y="40" width="359" height="68"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="68" id="TUw-ke-Lqe"/>
@@ -136,7 +136,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UIKonf_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="u8f-dt-ZFK">
-                                            <rect key="frame" x="126" y="558" width="122" height="122"/>
+                                            <rect key="frame" x="126" y="617" width="122" height="122"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="122" id="XHn-i1-R5s"/>
                                                 <constraint firstAttribute="width" constant="122" id="ao1-qf-I0k"/>
@@ -147,13 +147,17 @@
                                         <constraint firstItem="MRA-RI-V01" firstAttribute="top" secondItem="E89-0v-wWY" secondAttribute="topMargin" constant="32" id="5IM-3T-Bwv"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Hx9-kl-NrU" secondAttribute="trailing" id="Iin-kK-Y7u"/>
                                         <constraint firstItem="Hx9-kl-NrU" firstAttribute="leading" secondItem="E89-0v-wWY" secondAttribute="leadingMargin" id="NG0-y7-m63"/>
-                                        <constraint firstAttribute="bottom" secondItem="u8f-dt-ZFK" secondAttribute="bottom" constant="119" id="NMa-wF-95x"/>
+                                        <constraint firstAttribute="bottom" secondItem="u8f-dt-ZFK" secondAttribute="bottom" constant="60" id="NMa-wF-95x"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="MRA-RI-V01" secondAttribute="trailing" id="QrW-TW-9ZF"/>
                                         <constraint firstItem="Hx9-kl-NrU" firstAttribute="top" secondItem="MRA-RI-V01" secondAttribute="bottom" constant="8" symbolic="YES" id="SbM-Uq-AFT"/>
                                         <constraint firstItem="u8f-dt-ZFK" firstAttribute="centerX" secondItem="Hx9-kl-NrU" secondAttribute="centerX" id="TI1-1i-gns"/>
                                         <constraint firstItem="MRA-RI-V01" firstAttribute="leading" secondItem="E89-0v-wWY" secondAttribute="leadingMargin" id="bFM-NV-pwa"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="Hx9-kl-NrU" id="iev-5I-pUc"/>
+                                    <outlet property="titleLabel" destination="MRA-RI-V01" id="YGT-Gb-WLu"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
