@@ -214,6 +214,7 @@
  },
  {
  "name" : "Graham Lee",
+ "twitter" : "@iwasleeg",
  "bio" : "Graham Lee works at Facebook, where he helps people make better tests so they can help people make better software. In the past he worked with some other people, and has written books and blogs so he can work with people he hasn't met too. His blog is at sicpers.info.",
  "photo" : "http://www.uikonf.com/static/images/Graham-Lee.png"
  },
@@ -418,7 +419,7 @@
  "t_index" : 3
  },
  {
- "title" : "TBA",
+ "title" : "A Journey into Design",
  "speaker_name" : "Maxim Cramer",
  "t_id" : "session4Day2",
  "t_index" : 1
@@ -482,6 +483,6 @@
  {
  "name" : "Detailed info for all social events",
  "address" : "http://www.uikonf.com/static/files/pre-events-2015.pdf",
- "description" : "Tap on the link"
+ "description" : "Copy&Paste the link into a browser"
  }
 ]
