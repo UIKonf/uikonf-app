@@ -175,13 +175,13 @@
     {
         "t_id" : "beforeHackathon",
         "startTime" : "20-10-30",
-        "endTime" : "20-19-00",
+        "endTime" : "20-20-00",
         "description" : "Hackathon",
         "locations" : ["betahaus"]
 	},
 	{
 		"t_id" : "goodBye",
-		"startTime" : "20-19-00",
+		"startTime" : "20-20-00",
 		"description" : "Good Bye and thank you!"
 	},
  {
