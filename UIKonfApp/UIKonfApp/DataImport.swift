@@ -176,17 +176,22 @@ func syncData(context : Context){
             return
         }
         
+        var downloadedFiles = [NSData]()
+        
         for (index, path) in enumerate(paths) {
             let data = NSData(contentsOfURL: urls[index]!)
             if data == nil {
                 println("files could not be copied maybe lost of internet connection")
                 return
             }
-            data!.writeToFile(path, atomically: true)
+            downloadedFiles.append(data!)
         }
         
-        println("copied all files")
         dispatch_async(dispatch_get_main_queue(), {
+            for (index, path) in enumerate(paths) {
+                downloadedFiles[index].writeToFile(path, atomically: true)
+            }
+            println("copied all files")
             readDataIntoContext(context)
         })
     }
