@@ -1,26 +1,26 @@
 [
 	{
 		"t_id" : "beforeConference",
-        "endTime" : "17-15-00",
+        "endTime" : "17-12-00",
 		"description" : "Time before Conference"
 	},
 	{
 		"t_id" : "socialActivity",
-		"startTime" : "17-15-00",
+		"startTime" : "17-12-00",
 		"endTime" : "17-19-00",
         "description" : "Social activities on sunday",
-        "locations" : ["Bike Tour", "Berlin Museum of Technology", "Tempelhof Airport"]
+        "locations" : ["Bike Tour", "Boat Tour", "Museum of Technology Tour", "Tempelhof Airport", "Music Tour", "Bomb Shelter Tour", "Detailed info for all social events"]
 	},
 	{
 		"t_id" : "warmingParty",
 		"startTime" : "17-19-00",
-		"endTime" : "17-22-00",
-		"description" : "Warming party before conference",
+		"endTime" : "17-21-00",
+		"description" : "Drinks and preregistration for conference",
         "locations" : ["infarm"]
 	},
     {
         "t_id" : "endOfSocialDay",
-        "startTime" : "17-22-00",
+        "startTime" : "17-21-00",
         "endTime" : "18-09-00",
         "description" : "See you tomorrow",
         "locations" : ["Heimathafen Neukölln"]
@@ -147,16 +147,16 @@
 	{
 		"t_id" : "beforeParty",
 		"startTime" : "19-18-10",
-		"endTime" : "19-21-00",
+		"endTime" : "19-19-00",
 		"description" : "Free time before party",
         "locations" : ["Heimathafen Neukölln"]
 	},
 	{
 		"t_id" : "party",
-		"startTime" : "19-21-00",
+		"startTime" : "19-19-00",
 		"endTime" : "20-01-00",
 		"description" : "Party",
-        "locations" : ["Klunkerkranich"]
+        "locations" : ["Frank und Frei"]
 	},
 	{
 		"t_id" : "afterParty",
@@ -175,13 +175,13 @@
     {
         "t_id" : "beforeHackathon",
         "startTime" : "20-10-30",
-        "endTime" : "20-19-00",
+        "endTime" : "20-20-00",
         "description" : "Hackathon",
         "locations" : ["betahaus"]
 	},
 	{
 		"t_id" : "goodBye",
-		"startTime" : "20-19-00",
+		"startTime" : "20-20-00",
 		"description" : "Good Bye and thank you!"
 	},
  {
@@ -214,6 +214,7 @@
  },
  {
  "name" : "Graham Lee",
+ "twitter" : "@iwasleeg",
  "bio" : "Graham Lee works at Facebook, where he helps people make better tests so they can help people make better software. In the past he worked with some other people, and has written books and blogs so he can work with people he hasn't met too. His blog is at sicpers.info.",
  "photo" : "http://www.uikonf.com/static/images/Graham-Lee.png"
  },
@@ -418,7 +419,7 @@
  "t_index" : 3
  },
  {
- "title" : "TBA",
+ "title" : "A Journey into Design",
  "speaker_name" : "Maxim Cramer",
  "t_id" : "session4Day2",
  "t_index" : 1
@@ -441,27 +442,47 @@
  },
  {
  "name" : "infarm",
- "address" : "Fuldastr. 39, Berlin 12045",
+ "address" : "Glogauerstr. 6, 10999 Berlin",
  "description" : "Pre conference party location"
  },
  {
- "name" : "Klunkerkranich",
- "address" : "Karl-Marx-Straße 66, 12043 Berlin",
+ "name" : "Frank und Frei",
+ "address" : "Köpenicker Straße 74, 10179 Berlin",
  "description" : "Party location"
  },
  {
  "name" : "Bike Tour",
- "address" : "Karl-Marx-Str. 141, 12043 Berlin",
- "description" : "Bike tour start location"
+ "address" : "Schönhauser Allee 36, 10435 Berlin",
+ "description" : "Meeting Point inside Kulturbrauerei"
  },
  {
- "name" : "Berlin Museum of Technology",
+ "name" : "Boat Tour",
+ "address" : "Mierendorffplatz, 10589 Berlin",
+ "description" : "Take the U7 to Mierendorffplatz or the S41 / S42 to Jungfernheide"
+ },
+ {
+ "name" : "Museum of Technology Tour",
  "address" : "Trebbiner Straße 9, 10963 Berlin",
- "description" : "Start at the main entrance"
+ "description" : "Meeting Point, Deutsches Technik Museum Lobby"
  },
  {
  "name" : "Tempelhof Airport",
  "address" : "Tempelhofer Damm 1, 12101 Berlin",
- "description" : "Entrance across from the petrol station"
+ "description" : "Meeting Point, Platz der Luftbrücke by the Memorial Sculpture."
+ },
+ {
+ "name" : "Music Tour",
+ "address" : "Schönhauser Allee 36, 10435 Berlin",
+ "description" : "Meeting Point, in front of KESSELHAUS inside Kulturbrauerei Berlin"
+ },
+ {
+ "name" : "Bomb Shelter Tour",
+ "address" : "Prinzessinenstraße 19-20, 10969 Berlin",
+ "description" : "Meeting Point, Betahaus parking lot"
+ },
+ {
+ "name" : "Detailed info for all social events",
+ "address" : "http://www.uikonf.com/static/files/pre-events-2015.pdf",
+ "description" : "Copy&Paste the link into a browser"
  }
 ]
