@@ -161,22 +161,50 @@
 	{
 		"t_id" : "afterParty",
 		"startTime" : "20-01-00",
-		"endTime" : "20-10-00",
+		"endTime" : "20-09-30",
 		"description" : "See you at hackathon",
         "locations" : ["betahaus"]
 	},
 	{
 		"t_id" : "beforeHackathon",
-		"startTime" : "20-10-00",
-		"endTime" : "20-10-30",
+		"startTime" : "20-09-30",
+		"endTime" : "20-10-00",
 		"description" : "Checkin for Hackathon",
         "locations" : ["betahaus"]
 	},
-    {
-        "t_id" : "beforeHackathon",
-        "startTime" : "20-10-30",
-        "endTime" : "20-20-00",
-        "description" : "Hackathon",
+	{
+		"t_id" : "introHackathon",
+		"startTime" : "20-10-00",
+		"endTime" : "20-10-30",
+		"description" : "Intro of challenges and team building",
+        "locations" : ["betahaus"]
+	},
+	{
+		"t_id" : "hackathon1",
+		"startTime" : "20-10-30",
+		"endTime" : "20-13-00",
+		"description" : "Hacking",
+        "locations" : ["betahaus"]
+	},
+	{
+		"t_id" : "foodHackathon",
+		"startTime" : "20-13-00",
+		"endTime" : "20-13-30",
+		"description" : "Junk Food",
+        "locations" : ["betahaus"]
+	},
+	{
+		"t_id" : "hackathon2",
+		"startTime" : "20-13-30",
+		"endTime" : "20-19-00",
+		"description" : "More Hacking",
+        "locations" : ["betahaus"]
+	},
+	{
+		"t_id" : "presentationHackathon",
+		"startTime" : "20-19-00",
+		"endTime" : "20-20-00",
+		"description" : "Presentations",
         "locations" : ["betahaus"]
 	},
 	{
