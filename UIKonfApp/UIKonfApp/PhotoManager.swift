@@ -17,7 +17,7 @@ class PhotoManager : EntityChangedListener {
     weak var entity : Entity? {
         willSet {
             cancelLoadingPhoto?()
-            entity?.removeObserver(self)
+            disconnect()
         }
         didSet {
             entity?.addObserver(self)
@@ -34,7 +34,7 @@ class PhotoManager : EntityChangedListener {
     }
     
     deinit {
-        entity?.removeObserver(self)
+        disconnect()
     }
     
     func setPhoto() {
@@ -48,7 +48,6 @@ class PhotoManager : EntityChangedListener {
                     detachedPerson.set(PhotoComponent(url: photoComponent.url, image:image, loaded:true) , overwrite: true)
                     detachedPerson.sync()
                 }
-                
             }
         }
     }
