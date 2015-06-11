@@ -41,7 +41,10 @@ public class Group {
     }
     
     func removeEntity(e : Entity, withRemovedComponent removedComponent : Component) {
-        entities.removeValueForKey(e.creationIndex)
+        let removedEntity = entities.removeValueForKey(e.creationIndex)
+        if removedEntity == nil {
+            return // nothing changed, entity was not in the group
+        }
         _sortedEntities = nil
         for listener in observers {
             listener.entityRemoved(e, withRemovedComponent: removedComponent)
