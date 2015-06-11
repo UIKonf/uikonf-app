@@ -25,7 +25,7 @@ class DataImportTest: XCTestCase {
         readDataIntoContext(context)
         
         // then
-        XCTAssertEqual(timeSlotsGroup.count, 27, "we have 27 time slots")
+        XCTAssertEqual(timeSlotsGroup.count, 31, "we have 31 time slots")
     }
 
     func test_all_person_are_imported() {
@@ -91,7 +91,7 @@ class DataImportTest: XCTestCase {
         readDataIntoContext(context)
         
         // then
-        XCTAssertEqual(group.count, 7, "we have 7 locations")
+        XCTAssertEqual(group.count, 11, "we have 11 locations")
     }
     
     func test_location_reference() {
@@ -189,7 +189,7 @@ class DataImportTest: XCTestCase {
         readDataIntoContext(context)
         
         // then
-        XCTAssertEqual(timeSlotsGroup.count, 27, "we have 27 time slots")
+        XCTAssertEqual(timeSlotsGroup.count, 31, "we have 31 time slots")
     }
 }
 

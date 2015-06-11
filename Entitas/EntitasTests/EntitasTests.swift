@@ -240,20 +240,20 @@ class ContextTests: XCTestCase {
         
         var entityAdded : Entity?
         var entityRemoved : Entity?
-        let expectation : XCTestExpectation
+        let expectation : XCTestExpectation?
         
-        init(expectation : XCTestExpectation){
+        init(expectation : XCTestExpectation?){
             self.expectation = expectation
         }
         
         func entityAdded(entity : Entity) {
             entityAdded = entity
-            expectation.fulfill()
+            expectation?.fulfill()
         }
         
         func entityRemoved(entity : Entity, withRemovedComponent removedComponent : Component) {
             entityRemoved = entity
-            expectation.fulfill()
+            expectation?.fulfill()
         }
     }
     
@@ -334,6 +334,38 @@ class ContextTests: XCTestCase {
         // when
         let result2 = collector.pull()
         XCTAssert(result2.count == 6, "6 entities were pulled from collector")
+    }
+    
+    func test_group_observer_trigering_when_removed_entity() {
+        // given
+        let group = context.entityGroup(Matcher.All(NameComponent, AgeComponent))
+        
+        let e = context.createEntity()
+        e.set(NameComponent(name:"Maxim"))
+        e.set(AgeComponent(age:34))
+        let observer = MyObserver(expectation: nil)
+        group.addObserver(observer)
+        
+        // when
+        e.remove(NameComponent)
+        
+        // then
+        XCTAssertNotNil(observer.entityRemoved, "should remove entity")
+    }
+    
+    func test_group_observer_not_trigering_when_removed_entity_is_not_part_of_the_group() {
+        // given
+        let group = context.entityGroup(Matcher.All(NameComponent, AgeComponent))
+        let e = context.createEntity()
+        e.set(NameComponent(name:"Maxim"))
+        let observer = MyObserver(expectation: nil)
+        group.addObserver(observer)
+        
+        // when
+        e.remove(NameComponent)
+        
+        // then
+        XCTAssertNil(observer.entityRemoved, "should not remove entity")
     }
     
     func test_performance_creating_entities_with_random_components() {
