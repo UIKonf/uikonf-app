@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eOO-7N-nfJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="eOO-7N-nfJ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -372,14 +372,14 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hoh-UN-qxf" id="lfD-AG-0yp">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtM-tf-USo">
-                                            <rect key="frame" x="8" y="8" width="359" height="56"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="1000" text="jqgy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EtM-tf-USo">
+                                            <rect key="frame" x="8" y="8" width="359" height="21"/>
                                             <fontDescription key="fontDescription" name="AntennaExtraCond-Bold" family="AntennaExtraCond" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gvu-8R-L9T">
-                                            <rect key="frame" x="8" y="42" width="359" height="49"/>
+                                            <rect key="frame" x="8" y="29" width="359" height="62"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <fontDescription key="fontDescription" name="BauOT" family="Bau OT" pointSize="10"/>
@@ -393,10 +393,17 @@
                                         <constraint firstItem="gvu-8R-L9T" firstAttribute="leading" secondItem="lfD-AG-0yp" secondAttribute="leadingMargin" id="XgN-UF-nC1"/>
                                         <constraint firstItem="EtM-tf-USo" firstAttribute="top" secondItem="lfD-AG-0yp" secondAttribute="topMargin" id="XyJ-Ah-WCu"/>
                                         <constraint firstItem="gvu-8R-L9T" firstAttribute="top" secondItem="lfD-AG-0yp" secondAttribute="topMargin" constant="34" id="hft-gF-ojg"/>
+                                        <constraint firstItem="gvu-8R-L9T" firstAttribute="top" secondItem="EtM-tf-USo" secondAttribute="bottom" id="kBZ-G3-X5d"/>
                                         <constraint firstItem="EtM-tf-USo" firstAttribute="leading" secondItem="lfD-AG-0yp" secondAttribute="leadingMargin" id="mDa-95-0K0"/>
                                         <constraint firstItem="gvu-8R-L9T" firstAttribute="bottom" secondItem="lfD-AG-0yp" secondAttribute="bottomMargin" id="pRR-OS-A25"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="EtM-tf-USo" secondAttribute="bottom" constant="27" id="yEZ-vk-v8t"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="yEZ-vk-v8t"/>
+                                            <exclude reference="hft-gF-ojg"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="descriptionLabel" destination="gvu-8R-L9T" id="4fx-9C-0C1"/>
